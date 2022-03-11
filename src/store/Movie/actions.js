@@ -13,9 +13,10 @@ export const setMovie =(data)=>({
 
 export const searchMovies=()=>{}
 
-export const getMovies=()=>async dispatch=>{
+export const getMovies=()=>async dispatch =>{
     const res = await APIGetAllMovies();
-    console.log(res?.data?.data?.movies ?? []);
+    console.log('res--->',res)
+   // console.log(res?.data?.data?.movies ?? []);
     dispatch(setMovies(res?.data?.data?.movies ?? []))
 }
 

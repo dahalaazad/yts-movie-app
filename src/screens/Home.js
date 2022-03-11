@@ -19,7 +19,7 @@ export const Home = () => {
             <div className="flex wrap">
                 {movies.map((mov, key) => (
                     <div className="card ma-md" key={key}>
-                        <Link to={'/movie/' + mov.id} >
+                        <Link to={'/movie/' + mov.id+'/'+mov.title} >
                             <div className="movie-poster">
                                 <img src={mov.medium_cover_image} alt="" />
                             </div>

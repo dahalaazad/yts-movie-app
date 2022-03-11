@@ -5,5 +5,5 @@ export const APIGetAllMovies =()=>{
 }
 
 export const APIGetMovie=(id)=>{
-    return GetRequest("movie_details.json?movie_id="+id);
+    return GetRequest(`movie_details.json?movie_id=${id}&with_images=true&with_cast=true`);
 }

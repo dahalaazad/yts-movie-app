@@ -4,7 +4,7 @@ export const Search =()=>{
     const {keyword} = useParams();
     return (
         <section>
-            this is the search section
+            this is the search sectionsdfsdf
             <h1>{keyword}</h1>
         </section>
     )

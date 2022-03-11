@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.scss';
 import { MainLayout } from './layouts/MainLayout';
 
