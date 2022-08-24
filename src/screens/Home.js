@@ -2,6 +2,7 @@ import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux"
 import {Link} from "react-router-dom";
 import {getMovies} from "../store/Movie/actions";
+import {logDOM} from "@testing-library/react";
 
 export const Home = () => {
     const movies = useSelector(state => state.movie.movies);
@@ -19,12 +20,17 @@ export const Home = () => {
             <div className="flex wrap">
                 {movies.map((mov, key) => (
                     <div className="card ma-md" key={key}>
-                        <Link to={`/movies/${mov.slug}`} state={{ currentMovieId: mov.id }}>
+                        <Link to={`/movies/${mov.slug}`} state={{currentMovieId: mov.id}}>
                             <div className="movie-poster">
                                 <img src={mov.medium_cover_image} alt=""/>
                             </div>
-                            <div className="movie-title">
-                                {mov.title}
+                            <div className="movie-details flex">
+                                <div className="movie-language pr-xs">
+                                    {`[${mov.language.toUpperCase()}]`}
+                                </div>
+                                <div className="movie-title">
+                                    {mov.title.length > 27 ? mov.title.substring(0, 27) + '...' : mov.title}
+                                </div>
                             </div>
 
                         </Link>
