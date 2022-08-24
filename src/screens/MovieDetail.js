@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router"
+import {useLocation, useParams} from "react-router"
 import { getMovie } from "../store/Movie/actions";
 
 export const MovieDetail = () => {
-    const { id,title } = useParams();
+    const {slug } = useParams();
     const dispatch = useDispatch();
-    const movie = useSelector(state => state['movieReducer'].movie);
-    console.log(id,title);
+    const location = useLocation();
+    const movie = useSelector(state => state.movie.movie);
+    const id = location.state?.currentMovieId;
+    console.log(location.state?.currentMovieId,'movieID')
+    //console.log(movie);
     //console.log(movie.genres)
     useEffect(async () => {
         await loadMovie();

@@ -1,10 +1,10 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom";
-import { getMovies } from "../store/Movie/actions";
+import {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux"
+import {Link} from "react-router-dom";
+import {getMovies} from "../store/Movie/actions";
 
 export const Home = () => {
-    const movies = useSelector(state => state['movieReducer'].movies);
+    const movies = useSelector(state => state.movie.movies);
     const dispatch = useDispatch();
 
     useEffect(async () => {
@@ -19,18 +19,18 @@ export const Home = () => {
             <div className="flex wrap">
                 {movies.map((mov, key) => (
                     <div className="card ma-md" key={key}>
-                        <Link to={'/movie/' + mov.id+'/'+mov.title} >
+                        <Link to={`/movies/${mov.slug}`} state={{ currentMovieId: mov.id }}>
                             <div className="movie-poster">
-                                <img src={mov.medium_cover_image} alt="" />
+                                <img src={mov.medium_cover_image} alt=""/>
                             </div>
                             <div className="movie-title">
                                 {mov.title}
                             </div>
-                            
+
                         </Link>
                         <div className="movie-year">
-                                {mov.year}
-                            </div>
+                            {mov.year}
+                        </div>
                     </div>
                 ))}
             </div>
