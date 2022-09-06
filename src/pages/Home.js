@@ -1,7 +1,7 @@
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux"
 import {Link} from "react-router-dom";
-import {getMovies} from "../store/Movie/actions";
+import {getMovies} from "../utils/getMovies";
 import {logDOM} from "@testing-library/react";
 
 export const Home = () => {
@@ -25,9 +25,12 @@ export const Home = () => {
                                 <img src={mov.medium_cover_image} alt=""/>
                             </div>
                             <div className="movie-details flex">
+                                {mov.language !== 'en' ?
                                 <div className="movie-language pr-xs">
-                                    {`[${mov.language.toUpperCase()}]`}
+                                    [{mov.language.toUpperCase()}]
                                 </div>
+                                    : null
+                                }
                                 <div className="movie-title">
                                     {mov.title.length > 27 ? mov.title.substring(0, 27) + '...' : mov.title}
                                 </div>

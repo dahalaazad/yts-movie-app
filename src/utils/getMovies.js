@@ -1,6 +1,6 @@
- import { APIGetAllMovies, APIGetMovie } from "../../api/movie";
+ import { APIGetAllMovies, APIGetMovie } from "../api/movie";
 // import {useDispatch} from "react-redux";
- import {setAllMovies, setSingleMovie} from "../movieSlice";
+ import {setAllMovies, setSingleMovie} from "../store/movieSlice";
 //
 // // import { SET_MOVIES, SET_MOVIE } from "./actionTypes";
 // //
