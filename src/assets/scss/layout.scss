@@ -1,121 +1,128 @@
 @import './vars.scss';
 
-*{
+* {
   box-sizing: border-box;
 }
-body{
-  margin:0;
+
+body {
+  margin: 0;
 
 }
+
 //flex properties
-%flex,.flex{
-  display:flex;
+%flex, .flex {
+  display: flex;
 }
 
-%justify-center,.justify-center{
+%block, .block {
+  display: block;
+}
+
+%justify-center, .justify-center {
   justify-content: center;
 }
 
 
-%justify-end,.justify-end{
+%justify-end, .justify-end {
   justify-content: flex-end;
 }
 
-%justify-start,.justify-start{
+%justify-start, .justify-start {
   justify-content: flex-start;
 }
 
 
-%justify-between,.justify-between{
+%justify-between, .justify-between {
   justify-content: space-between;
 }
 
-%justify-evenly,.justify-evenly{
+%justify-evenly, .justify-evenly {
   justify-content: space-evenly;
 }
 
-%justify-between,.justify-between{
+%justify-between, .justify-between {
   justify-content: space-between;
 }
 
-%flex-centered,.flex-centered{
+%flex-centered, .flex-centered {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-%align-center,.align-center{
+%align-center, .align-center {
   align-content: center;
 }
 
 
-%align-end,.align-end{
+%align-end, .align-end {
   align-content: flex-end;
 }
 
-%align-start,.align-start{
+%align-start, .align-start {
   align-content: flex-start;
 }
 
 
-%align-between,.align-between{
+%align-between, .align-between {
   align-content: space-between;
 }
 
-%align-evenly,.align-evenly{
+%align-evenly, .align-evenly {
   align-content: space-evenly;
 }
 
-%align-between,.align-between{
+%align-between, .align-between {
   align-content: space-between;
 }
 
-%items-center,.items-center{
+%items-center, .items-center {
   align-items: center;
 }
 
 
-%items-end,.items-end{
+%items-end, .items-end {
   align-items: flex-end;
 }
 
-%items-start,.items-start{
+%items-start, .items-start {
   align-items: flex-start;
 }
 
-%wrap,.wrap{
+%wrap, .wrap {
   flex-wrap: wrap;
 }
 
-%no-wrap,.no-wrap{
+%no-wrap, .no-wrap {
   flex-wrap: nowrap;
 }
 
-%column,.column{
+%column, .column {
   flex-direction: column;
 }
 
-%row,.row{
+%row, .row {
   flex-direction: row;
 }
 
-%row-reverse,.row-reverse{
+%row-reverse, .row-reverse {
   flex-direction: row-reverse;
 }
 
-%column-reverse,.column-reverse{
+%column-reverse, .column-reverse {
   flex-direction: column-reverse;
 }
 
 @for $i from 1 through 12 {
-  .flex-#{$i}{
+  .flex-#{$i} {
     flex: $i;
   }
 
-  .col-#{$i}{
+  .col-#{$i} {
     width: calc(8.33333% * #{$i});
   }
 }
+
 @for $i from 1 through 12 {
   .col-md-#{$i} {
     width: calc(8.33333% * #{$i});
@@ -129,7 +136,7 @@ body{
 }
 
 
-@media (max-width:576px){
+@media (max-width: 576px) {
   @for $i from 1 through 12 {
     .col-sm-#{$i} {
       width: calc(8.33333% * #{$i});
@@ -137,21 +144,23 @@ body{
   }
 }
 
-@media (min-width:576px) and (max-width:768px){
+@media (min-width: 576px) and (max-width: 768px) {
   @for $i from 1 through 12 {
     .col-md-#{$i} {
       width: calc(8.33333% * #{$i});
     }
   }
 }
-@media (min-width:768px) and (max-width:992px){
+
+@media (min-width: 768px) and (max-width: 992px) {
   @for $i from 1 through 12 {
     .col-md-#{$i} {
       width: calc(8.33333% * #{$i});
     }
   }
 }
-@media (min-width:992px) and (max-width:1200px){
+
+@media (min-width: 992px) and (max-width: 1200px) {
   @for $i from 1 through 12 {
     .col-lg-#{$i} {
       width: calc(8.33333% * #{$i});
@@ -159,7 +168,7 @@ body{
   }
 }
 
-@media (min-width:1200px){
+@media (min-width: 1200px) {
   @for $i from 1 through 12 {
     .col-xl-#{$i} {
       width: calc(8.33333% * #{$i});
@@ -268,7 +277,6 @@ body{
 }
 
 
-
 //padding-left
 .pl-none {
   padding-left: 0 !important;
@@ -362,19 +370,21 @@ body{
   padding-right: $xxl;
   padding-left: $xxl;
 }
+
 .px-three-xl {
   padding-right: $three-xl;
   padding-left: $three-xl;
 }
+
 .px-four-xl {
   padding-right: $four-xl;
   padding-left: $four-xl;
 }
+
 .px-five-xl {
   padding-right: $five-xl;
   padding-left: $five-xl;
 }
-
 
 
 //padding-y
@@ -602,29 +612,30 @@ body{
 }
 
 //rows and columns
-.row{
+.row {
   display: flex;
   flex-wrap: wrap;
 }
 
-.full-width{
-  width:100%;
+.full-width {
+  width: 100%;
 }
 
 
-.full-height{
-  height:100%;
+.full-height {
+  height: 100%;
 }
 
 
 //overflow
-.auto-scroll{
+.auto-scroll {
   overflow: auto;
 }
 
-.x-auto-scroll{
+.x-auto-scroll {
   overflow-x: auto;
 }
-.y-auto-scroll{
+
+.y-auto-scroll {
   overflow-y: auto;
 }

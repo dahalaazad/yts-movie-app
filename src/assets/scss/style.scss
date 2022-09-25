@@ -10,16 +10,16 @@ body {
   font-weight: bolder;
 }
 
-.logo-mini{
-  height:50px;
-  width:50px;
+.logo-mini {
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background:rgba(255,255,255,.3);
-  color:white;
-  font-size:1.6rem;
+  background: rgba(255, 255, 255, .3);
+  color: white;
+  font-size: 1.6rem;
 }
 
 .btn {
@@ -170,10 +170,12 @@ body {
     border-radius: $xs;
     border: none;
     padding: $sm;
-    &.rounded{
+
+    &.rounded {
       border-radius: 30px;
       padding: $sm $lg;
     }
+
     &::placeholder {
       font-family: $title-font;
     }
@@ -182,8 +184,9 @@ body {
   .input-area {
     display: flex;
     align-items: center;
-    input{
-      flex:1;
+
+    input {
+      flex: 1;
     }
   }
 
@@ -224,6 +227,13 @@ body {
   background-color: $warning-color;
 }
 
+.bg-yts-dark {
+  background-color: $yts-dark-color;
+}
+.bg-yts-green {
+  background-color: $yts-green-color;
+}
+
 //texts
 .text-primary {
   color: $primary-color;
@@ -262,24 +272,25 @@ body {
   font-size: $accent-size;
 }
 
-.text-center{
+.text-center {
   text-align: center;
 }
 
 
-.text-right{
+.text-right {
   text-align: right;
 }
 
 
-.text-left{
+.text-left {
   text-align: left;
 }
-.bold{
+
+.bold {
   font-weight: bold;
 }
 
-.bolder{
+.bolder {
   font-weight: bolder;
 }
 
@@ -292,11 +303,10 @@ body {
 }
 
 
-
 //cursor
 
-.pointer{
-  cursor:pointer;
+.pointer {
+  cursor: pointer;
 }
 
 //scrollbar
@@ -322,7 +332,33 @@ body {
 }
 
 // 
-nav{
-  height:60px;
-  padding: 0 $wrapper-val;  
+nav {
+  height: 60px;
+  padding: 0 $wrapper-val;
+}
+
+// background
+
+.movie-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.movie-title{
+  font-family: $movie-font;
+  font-size: $xxl;
+  color: #ffffff;
+}
+
+.movie-poster {
+  border: 6px solid $light-color;
+  border-radius: 5px;
+}
+.movie-card {
+  font-family: $movie-font !important;
+  font-size: $md-1;
+  color: $light-color;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  line-height: 1.6em;
 }

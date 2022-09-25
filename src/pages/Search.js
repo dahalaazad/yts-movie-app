@@ -22,7 +22,7 @@ export const Search = () => {
             label: mov.title
         }
     })
-    console.log('movie in search', movieList)
+    //console.log('movie in search', movieList)
     return (
         <section>
             {/*<input type="text" placeholder="Search" className='text-white'/>*/}
