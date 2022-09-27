@@ -15,8 +15,11 @@ export const Nav = () => (
             <Link to={'/'} element={<Home/>}>
                 <div className="nav-item px-lg">Home</div>
             </Link>
+            <Link to={'/'} element={<Home/>}>
+                <div className="nav-item px-lg">Favourite Movies</div>
+            </Link>
             <div className="form-group pt-md">
-<Search/>
+{/*<Search/>*/}
             </div>
         </div>
     </nav>

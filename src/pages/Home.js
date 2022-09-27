@@ -3,9 +3,12 @@ import {useDispatch, useSelector} from "react-redux"
 import {Link} from "react-router-dom";
 import {getMovies} from "../utils/getMovies";
 import {logDOM} from "@testing-library/react";
+import {getDirectorName} from "../utils/favMovies";
 
 export const Home = () => {
     const movies = useSelector(state => state.movie.movies);
+    const favMovies = useSelector(state => state.movie.favMovies)
+    //console.log(favMovies)
     const dispatch = useDispatch();
     //console.log(movies[0]?.background_image)
     useEffect(async () => {
@@ -14,6 +17,7 @@ export const Home = () => {
 
     const loadMovies = async () => {
         await dispatch(getMovies());
+        //await dispatch(getDirectorName(favMovies))
     }
     return (
         <section className='movie-bg' style={{
@@ -24,9 +28,9 @@ export const Home = () => {
             }}
 
             >
-                {movies.map((mov, key) => (
+                {favMovies.map((mov, key) => (
                     <div className="card ma-md movie-card" key={key}>
-                        <Link to={`/movies/${mov.slug}`} state={{currentMovieId: mov.id}}>
+                        <Link to={`/movies/${mov.slug}`} state={{currentMovieId: mov.id,director:mov.director,directorPic:mov.directorPic}}>
                             <div className="movie-poster">
                                 <img src={mov.medium_cover_image} alt=""/>
                             </div>

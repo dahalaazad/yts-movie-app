@@ -346,7 +346,7 @@ nav {
 
 .movie-title{
   font-family: $movie-font;
-  font-size: $xxl;
+  //font-size: $xxl;
   color: #ffffff;
 }
 
@@ -362,3 +362,44 @@ nav {
   font-weight: 600;
   line-height: 1.6em;
 }
+
+.director-image {
+  height: 80px;
+  width: 60px;
+  border-radius: 100%;
+}
+
+//font-size
+
+.fs-xs {
+  font-size: $xs;
+}
+.fs-sm {
+  font-size: $sm;
+}
+.fs-md {
+  font-size: $md;
+}
+.fs-md-1 {
+  font-size: $md-1;
+}
+.fs-lg {
+  font-size: $lg;
+}
+.fs-xl {
+  font-size: $xl;
+}
+.fs-xxl {
+  font-size: $xxl;
+}
+.fs-three-xl {
+  font-size: $three-xl;
+}
+.fs-four-xl {
+  font-size: $four-xl;
+}
+.fs-five-xl {
+  font-size: $five-xl;
+}
+
+
