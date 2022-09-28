@@ -4,16 +4,13 @@ import {Link} from "react-router-dom";
 import {getMovies} from "../utils/getMovies";
 
 export const AllMovieDisplay = ({moviesProp}) => {
-     const movies = useSelector(state => state.movie.movies);
-      return (
+    const movies = useSelector(state => state.movie.movies);
+    //console.log(moviesProp)
+    return (
         <section className='movie-bg' style={{
             backgroundImage: `url(${movies[3]?.background_image_original})`
         }}>
-            <div className="flex wrap  justify-center" style={{
-                margin: '0 12.5%  0 12.5%'
-            }}
-
-            >
+            <div className="flex wrap justify-center all-movie">
                 {moviesProp.map((mov, key) => (
                     <div className="card ma-md movie-card" key={key}>
                         <Link to={`/movies/${mov.slug}`}

@@ -1,8 +1,8 @@
 import {
     APIGetAllMovies,
     APIGetFavMovies,
-    APIGetFurtherOMDBDetails,
-    APIGetMovie
+    APIGetFurtherOMDBDetails, APIGetFurtherTMDBDetails,
+    APIGetMovie, APIGetTMDBCastDetails
 } from "../api/movie";
 // import {useDispatch} from "react-redux";
 import {setAllMovies, setFavMovies, setSingleMovie} from "../store/movieSlice";
@@ -32,7 +32,7 @@ export const getMovies = () => async dispatch => {
                 movieList[index].directorId = x.data.id;
                 //console.log(movieList[index].title,'---->',x.data.Title)
             })
-            console.log(movieList)
+            //console.log(movieList)
             dispatch(setAllMovies(movieList))
         }
     )
@@ -41,7 +41,20 @@ export const getMovies = () => async dispatch => {
 
 export const getMovie = (id) => async dispatch => {
     const res = await APIGetMovie(id);
-    dispatch(setSingleMovie(res?.data?.data?.movie ?? []))
+    const movieDetails = res?.data?.data?.movie;
+    // console.log(movieDetails)
+    const TMDB_Details = await APIGetFurtherTMDBDetails(res?.data?.data?.movie?.imdb_code);
+    const TMDB_Code = TMDB_Details?.data?.movie_results[0]?.id
+    const TMDB_Cast_Details = await APIGetTMDBCastDetails(TMDB_Code);
+    const TMDB_Director = TMDB_Cast_Details?.data?.crew.filter(a => a.job === 'Director')
+    console.log(TMDB_Director[0])
+    //console.log(TMDB_Cast_Details?.data?.cast)
+    movieDetails.director = TMDB_Director[0].name;
+    movieDetails.directorId = TMDB_Director[0].id;
+    movieDetails.directorPic = TMDB_Director[0].profile_path;
+    movieDetails.TMDB_cast = TMDB_Cast_Details?.data?.cast;
+    // console.log(movieDetails)
+    dispatch(setSingleMovie(movieDetails ?? []))
 }
 //
 //

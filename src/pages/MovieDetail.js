@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
 import {useLocation, useParams} from "react-router"
@@ -7,6 +7,7 @@ import imdbLogo from '../assets/svg/logo-imdb.svg';
 import YoutubeTrailerEmbed from "../components/partials/YoutubeTrailerEmbed";
 import defaultIcon from "../assets/default_avatar.webp";
 import ReactImageFallback from "react-image-fallback";
+import {PopUpModal} from "../components/partials/PopUpModal";
 
 
 export const MovieDetail = () => {
@@ -15,10 +16,10 @@ export const MovieDetail = () => {
     const location = useLocation();
     const movie = useSelector(state => state.movie.movie);
     const id = location.state?.currentMovieId;
-    const director = location.state?.director;
-    const directorPic = location.state?.directorPic;
-    const directorId = location.state?.directorId;
-    //console.log('movieName--->', movie.title, movie.director)
+    const [open, setOpen] = useState(false);
+    //const director = location.state?.director;
+    // const directorPic = location.state?.directorPic;
+    // const directorId = location.state?.directorId;
     //console.log(movie.genres)
     //console.log(directorId)
     useEffect(async () => {
@@ -39,7 +40,9 @@ export const MovieDetail = () => {
                                  alt={`${movie.title}-movie-poster`}/>
                         </div>
                         <div className="dload-button bg-yts-green text-light text-center my-md mr-lg py-xs">
-                            Download
+                            <button onClick={() => setOpen(true)}>Download</button>
+                            {open && <PopUpModal setOpen={setOpen}/>}
+                            {console.log(open)}
                         </div>
                     </div>
                     <div className="details movie-title">
@@ -58,8 +61,13 @@ export const MovieDetail = () => {
                             </div>
                         </h3>
                         <div className="ratings">
-                            <h3 className='flex'><a href={`https://www.imdb.com/title/${movie.imdb_code}`} target='_blank'><img src={imdbLogo} alt='imdbLogo'
-                                                                 className='pr-md'/></a> {parseFloat(movie.rating).toFixed(1)}</h3>
+                            <h3 className='flex'>
+                                <a href={`https://www.imdb.com/title/${movie.imdb_code}`} target='_blank'>
+                                    <img src={imdbLogo} alt='imdbLogo'
+                                         className='pr-md'/>
+                                </a>
+                                {parseFloat(movie.rating).toFixed(1)}
+                            </h3>
                         </div>
                     </div>
                 </div>
@@ -77,27 +85,27 @@ export const MovieDetail = () => {
                     <div className="director">
                         Director:
                         <div className="direct flex pa-md">
-                            <a href={`https://www.themoviedb.org/person/${directorId}`}
-                            target='_blank'>
+                            <a href={`https://www.themoviedb.org/person/${movie.directorId}`}
+                               target='_blank'>
                                 {/*<img className='director-image' src={`https://image.tmdb.org/t/p/original/${directorPic}`}*/}
                                 {/*     alt={`${director}_photo`}*/}
                                 {/*/>*/}
                                 <ReactImageFallback
                                     className='director-image'
-                                    src={`https://image.tmdb.org/t/p/original/${directorPic}`}
+                                    src={`https://image.tmdb.org/t/p/original/${movie.directorPic}`}
                                     fallbackImage={defaultIcon}
                                 />
                             </a>
-                            <p className='pa-md mt-md'>{director}</p>
+                            <p className='pa-md mt-md'>{movie.director}</p>
                         </div>
                     </div>
                     {/* {console.log(movie.cast)} */}
                     <div className="cast">
                         Cast:
-                        {movie.cast?.map((actor, i) => (
+                        {movie.TMDB_cast?.slice(0, 4).map((actor, i) => (
 
                             <a className="flex pa-md"
-                               href={`https://www.imdb.com/name/nm${actor.imdb_code}`}
+                               href={`https://www.themoviedb.org/person/${actor.id}`}
                                target="_blank"
                                key={actor.imdb_code}
                             >
@@ -109,10 +117,10 @@ export const MovieDetail = () => {
                                 {/*     style={{borderRadius: '100%'}}/>*/}
                                 <ReactImageFallback
                                     className='cast-image'
-                                    src={actor.url_small_image}
+                                    src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}
                                     fallbackImage={defaultIcon}
                                 />
-                                <p className='pa-md'>{actor.name} as {actor.character_name} </p>
+                                <p className='pa-md'>{actor.name} as {actor.character} </p>
                             </a>
 
 

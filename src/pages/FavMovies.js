@@ -16,7 +16,7 @@ export const FavMovies = () => {
         await dispatch(getFavMovies());
         //await dispatch(getDirectorName(favMovies))
     }
-    console.log(favMovies)
+    // console.log(favMovies)
     return (
         <div>
             <AllMovieDisplay moviesProp={favMovies}/>

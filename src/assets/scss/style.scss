@@ -230,6 +230,7 @@ body {
 .bg-yts-dark {
   background-color: $yts-dark-color;
 }
+
 .bg-yts-green {
   background-color: $yts-green-color;
 }
@@ -299,7 +300,19 @@ body {
 .card, %card {
   border-radius: $sm;
   padding: $md;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+  //box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 1656px) {
+  .all-movie {
+    margin: 0 6.25%  0 6.25%;
+  }
+}
+
+@media (min-width: 1657px){
+  .all-movie {
+    margin: 0 15%  0 15%;
+  }
 }
 
 
@@ -344,7 +357,7 @@ nav {
   background-size: cover;
 }
 
-.movie-title{
+.movie-title {
   font-family: $movie-font;
   //font-size: $xxl;
   color: #ffffff;
@@ -354,8 +367,9 @@ nav {
   border: 6px solid $light-color;
   border-radius: 5px;
 }
+
 .movie-card {
-  font-family: $movie-font !important;
+  font-family: $footer-font !important;
   font-size: $md-1;
   color: $light-color;
   letter-spacing: 0.5px;
@@ -363,45 +377,108 @@ nav {
   line-height: 1.6em;
 }
 
-.director-image {
+.director-image, .cast-image {
   height: 80px;
   width: 60px;
-  border-radius: 100%;
+  clip-path: inset(0 0 15px 0 round 50px);
+  //overflow: hidden;
+  //border-radius: 50%;
 }
 
-.cast-image {
-  border-radius: 100%;
+.yts-header-footer {
+  background-color: $yts-footer-dark;
+  font-family: $footer-font;
 }
+
+.yts-font {
+  font-family: $footer-font;
+}
+
+.upper > span:hover {
+  color: $light-color;
+}
+
+.lower > .link:hover {
+  color: $light-color;
+}
+
+.nav-item:hover{
+  color: $light-color;
+}
+
+
+.yts-grey {
+  color: $yts-footer-grey;
+}
+
+//overlay effect
+
+.overlay{
+  position:fixed;
+  display: block;
+  width: 40%;
+  height: 50%;
+  top: 12.5%;
+  left: 30%;
+  //right: 20%;
+  //bottom: 0;
+  background-color: $light-color;
+  //cursor: pointer;
+  color: $yts-active-green;
+  z-index: 999;
+  border-radius: 1%;
+}
+
+.dark-popup-bg {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
 
 //font-size
 
 .fs-xs {
   font-size: $xs;
 }
+
 .fs-sm {
   font-size: $sm;
 }
+
 .fs-md {
   font-size: $md;
 }
+
 .fs-md-1 {
   font-size: $md-1;
 }
+
 .fs-lg {
   font-size: $lg;
 }
+
 .fs-xl {
   font-size: $xl;
 }
+
 .fs-xxl {
   font-size: $xxl;
 }
+
 .fs-three-xl {
   font-size: $three-xl;
 }
+
 .fs-four-xl {
   font-size: $four-xl;
 }
+
 .fs-five-xl {
   font-size: $five-xl;
 }
