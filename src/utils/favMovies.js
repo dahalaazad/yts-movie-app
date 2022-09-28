@@ -46,17 +46,19 @@ export const getFavMovies = () => async dispatch => {
         res => {
             //console.log(res)
             const tmdbList = res.map(mov => mov.data.movie_results[0]);
-            //console.log(tmdbList.map(item=> item.id))
+            //console.log(tmdbList.map(item=> item))
             const list = Promise.all(tmdbList.map(a => APIGetTMDBCastDetails(a.id))).then(
                 res1 => {
+                    //console.log(res1)
                     const crewList = res1.map(b => (b.data.crew).filter(c=>c.job==='Director'));
-                    //console.log(crewList)
+
                     crewList.map((d,index) => {
                         //console.log(d[0])
                         movieList[index].director = d[0].name;
                         movieList[index].directorPic = d[0].profile_path;
+                        movieList[index].directorId = d[0].id
                     })
-                    console.log(movieList)
+                    //console.log(movieList)
                     dispatch(setFavMovies(movieList))
 
                 }

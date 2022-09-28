@@ -6,6 +6,7 @@ import {getMovie} from "../utils/getMovies";
 import imdbLogo from '../assets/svg/logo-imdb.svg';
 import YoutubeTrailerEmbed from "../components/partials/YoutubeTrailerEmbed";
 import defaultIcon from "../assets/default_avatar.webp";
+import ReactImageFallback from "react-image-fallback";
 
 
 export const MovieDetail = () => {
@@ -16,9 +17,10 @@ export const MovieDetail = () => {
     const id = location.state?.currentMovieId;
     const director = location.state?.director;
     const directorPic = location.state?.directorPic;
+    const directorId = location.state?.directorId;
     //console.log('movieName--->', movie.title, movie.director)
     //console.log(movie.genres)
-    //console.log(director)
+    //console.log(directorId)
     useEffect(async () => {
         await loadMovie();
     }, [])
@@ -56,8 +58,8 @@ export const MovieDetail = () => {
                             </div>
                         </h3>
                         <div className="ratings">
-                            <h3 className='flex'><img src={imdbLogo} alt='imdbLogo'
-                                                      className='pr-md'/> {parseFloat(movie.rating).toFixed(1)}</h3>
+                            <h3 className='flex'><a href={`https://www.imdb.com/title/${movie.imdb_code}`} target='_blank'><img src={imdbLogo} alt='imdbLogo'
+                                                                 className='pr-md'/></a> {parseFloat(movie.rating).toFixed(1)}</h3>
                         </div>
                     </div>
                 </div>
@@ -75,8 +77,17 @@ export const MovieDetail = () => {
                     <div className="director">
                         Director:
                         <div className="direct flex pa-md">
-                            <img className='director-image' src={`https://image.tmdb.org/t/p/original/${directorPic}`} alt={`${director}_photo`}
-                                 />
+                            <a href={`https://www.themoviedb.org/person/${directorId}`}
+                            target='_blank'>
+                                {/*<img className='director-image' src={`https://image.tmdb.org/t/p/original/${directorPic}`}*/}
+                                {/*     alt={`${director}_photo`}*/}
+                                {/*/>*/}
+                                <ReactImageFallback
+                                    className='director-image'
+                                    src={`https://image.tmdb.org/t/p/original/${directorPic}`}
+                                    fallbackImage={defaultIcon}
+                                />
+                            </a>
                             <p className='pa-md mt-md'>{director}</p>
                         </div>
                     </div>
@@ -85,15 +96,24 @@ export const MovieDetail = () => {
                         Cast:
                         {movie.cast?.map((actor, i) => (
 
-                                <a className="flex pa-md"
-                                   href={`https://www.imdb.com/name/nm${actor.imdb_code}`}
-                                   target="_blank"
-                                   key={actor.imdb_code}
-                                >
-                                    <img src={actor.url_small_image} alt={`${actor.name}_photo`}
-                                         style={{borderRadius: '100%'}}/>
-                                    <p className='pa-md'>{actor.name} as {actor.character_name} </p>
-                                </a>
+                            <a className="flex pa-md"
+                               href={`https://www.imdb.com/name/nm${actor.imdb_code}`}
+                               target="_blank"
+                               key={actor.imdb_code}
+                            >
+                                {/*<img className='cast-image' src={actor.url_small_image}*/}
+                                {/*     // alt={`${actor.name}_photo`}*/}
+                                {/*     onError={(event) => {*/}
+                                {/*         event.target.src = defaultIcon*/}
+                                {/*     }}*/}
+                                {/*     style={{borderRadius: '100%'}}/>*/}
+                                <ReactImageFallback
+                                    className='cast-image'
+                                    src={actor.url_small_image}
+                                    fallbackImage={defaultIcon}
+                                />
+                                <p className='pa-md'>{actor.name} as {actor.character_name} </p>
+                            </a>
 
 
                         ))}

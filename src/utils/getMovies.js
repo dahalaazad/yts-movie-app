@@ -27,10 +27,12 @@ export const getMovies = () => async dispatch => {
         res => {
             //console.log(res)
             const List = res.map((x, index) => {
-                movieList[index].director = x.data.Director
+                movieList[index].director = x.data.Director;
+                movieList[index].directorPic = x.data.profile_path;
+                movieList[index].directorId = x.data.id;
                 //console.log(movieList[index].title,'---->',x.data.Title)
             })
-            //console.log(movieList)
+            console.log(movieList)
             dispatch(setAllMovies(movieList))
         }
     )
