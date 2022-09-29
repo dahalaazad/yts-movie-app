@@ -8,6 +8,7 @@ import YoutubeTrailerEmbed from "../components/partials/YoutubeTrailerEmbed";
 import defaultIcon from "../assets/default_avatar.webp";
 import ReactImageFallback from "react-image-fallback";
 import {PopUpModal} from "../components/partials/PopUpModal";
+import {CastDetails} from "../components/partials/CastDetails";
 
 
 export const MovieDetail = () => {
@@ -29,20 +30,24 @@ export const MovieDetail = () => {
         await dispatch(getMovie(id));
     }
     return (
-        <section>
-            <div className="top-half flex justify-evenly movie-bg" style={{
+        <section className=''>
+            <div className="top-half flex justify-around movie-bg" style={{
                 backgroundImage: `url(${movie.background_image_original})`
             }}>
                 <div className="movie-in-detail flex pa-md ">
                     <div className="left-half">
                         <div className="poster-medium pr-lg ">
-                            <img className='movie-poster' src={movie.medium_cover_image}
-                                 alt={`${movie.title}-movie-poster`}/>
+                            {/*<img className='movie-poster' src={movie.medium_cover_image}*/}
+                            {/*     alt={`${movie.title}-movie-poster`}/>*/}
+                            <ReactImageFallback
+                                className='movie-poster'
+                                src={movie.medium_cover_image}
+                                fallbackImage={`https://image.tmdb.org/t/p/original/${movie.TMDB_poster}`}
+                            />
                         </div>
                         <div className="dload-button bg-yts-green text-light text-center my-md mr-lg py-xs">
                             <button onClick={() => setOpen(true)}>Download</button>
-                            {open && <PopUpModal setOpen={setOpen}/>}
-                            {console.log(open)}
+                            {open && <PopUpModal setOpen={setOpen} torrents={movie.torrents}/>}
                         </div>
                     </div>
                     <div className="details movie-title">
@@ -75,63 +80,22 @@ export const MovieDetail = () => {
                     <span className='text-light'>Similar Movies</span>
                 </div>
             </div>
-            <div className="lower-half flex py-lg justify-evenly">
-                <div className="synopsis" style={{width: '60%'}}
-                >
-                    <h1 className='block'>Synopsis</h1>
-                    <p style={{whiteSpace: 'wrap', textAlign: 'justify'}}>{movie.description_full}</p>
-                </div>
-                <div className="persons-in-movie">
-                    <div className="director">
-                        Director:
-                        <div className="direct flex pa-md">
-                            <a href={`https://www.themoviedb.org/person/${movie.directorId}`}
-                               target='_blank'>
-                                {/*<img className='director-image' src={`https://image.tmdb.org/t/p/original/${directorPic}`}*/}
-                                {/*     alt={`${director}_photo`}*/}
-                                {/*/>*/}
-                                <ReactImageFallback
-                                    className='director-image'
-                                    src={`https://image.tmdb.org/t/p/original/${movie.directorPic}`}
-                                    fallbackImage={defaultIcon}
-                                />
-                            </a>
-                            <p className='pa-md mt-md'>{movie.director}</p>
-                        </div>
-                    </div>
-                    {/* {console.log(movie.cast)} */}
-                    <div className="cast">
-                        Cast:
-                        {movie.TMDB_cast?.slice(0, 4).map((actor, i) => (
-
-                            <a className="flex pa-md"
-                               href={`https://www.themoviedb.org/person/${actor.id}`}
-                               target="_blank"
-                               key={actor.imdb_code}
-                            >
-                                {/*<img className='cast-image' src={actor.url_small_image}*/}
-                                {/*     // alt={`${actor.name}_photo`}*/}
-                                {/*     onError={(event) => {*/}
-                                {/*         event.target.src = defaultIcon*/}
-                                {/*     }}*/}
-                                {/*     style={{borderRadius: '100%'}}/>*/}
-                                <ReactImageFallback
-                                    className='cast-image'
-                                    src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}
-                                    fallbackImage={defaultIcon}
-                                />
-                                <p className='pa-md'>{actor.name} as {actor.character} </p>
-                            </a>
 
 
-                        ))}
-                    </div>
-                </div>
 
-            </div>
-            <div className="trailer pa-md" style={{width: '60%', borderRadius: '50%'}}>
+            <div className='movie-lower text-light'>
                 <YoutubeTrailerEmbed trailerCode={movie.yt_trailer_code}/>
+
+                <div className="lower-half  flex py-lg justify-evenly">
+                    <div className="synopsis" style={{width: '60%'}}>
+                        <h1 className='block'>Synopsis</h1>
+                        <p style={{whiteSpace: 'wrap', textAlign: 'justify'}}>{movie.description_full}</p>
+                    </div>
+                    <CastDetails movie={movie}/>
+                </div>
+
             </div>
+
         </section>
     )
 }

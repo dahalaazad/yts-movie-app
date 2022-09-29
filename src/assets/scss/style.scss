@@ -305,13 +305,13 @@ body {
 
 @media (max-width: 1656px) {
   .all-movie {
-    margin: 0 6.25%  0 6.25%;
+    margin: 0 6.25% 0 6.25%;
   }
 }
 
-@media (min-width: 1657px){
+@media (min-width: 1657px) {
   .all-movie {
-    margin: 0 15%  0 15%;
+    margin: 0 15% 0 15%;
   }
 }
 
@@ -351,8 +351,22 @@ nav {
 }
 
 // background
+.movie-lower {
+  background-color: $yts-dark-color;
+}
+
+.yt-trailer {
+  transform: translate(10%, -30%);
+  //z-index: 10;
+}
 
 .movie-bg {
+  //position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  top: 60px;
+  height: 600px;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -364,17 +378,19 @@ nav {
 }
 
 .movie-poster {
-  border: 6px solid $light-color;
+  border: 5px solid $light-color;
   border-radius: 5px;
+  height: 345px;
+  width: 230px;
 }
 
 .movie-card {
   font-family: $footer-font !important;
-  font-size: $md-1;
+  font-size: 0.95em;
   color: $light-color;
-  letter-spacing: 0.5px;
-  font-weight: 600;
-  line-height: 1.6em;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  line-height: 1.5em;
 }
 
 .director-image, .cast-image {
@@ -402,8 +418,15 @@ nav {
   color: $light-color;
 }
 
-.nav-item:hover{
+.nav-items {
+  font-size: 0.90em;
+  font-weight: bold;
+  letter-spacing: -.03em;
+}
+
+.nav-item:hover {
   color: $light-color;
+
 }
 
 
@@ -413,9 +436,9 @@ nav {
 
 //overlay effect
 
-.overlay{
-  position:fixed;
-  display: block;
+.overlay {
+  position: fixed;
+  //display: block;
   width: 40%;
   height: 50%;
   top: 12.5%;
@@ -424,20 +447,44 @@ nav {
   //bottom: 0;
   background-color: $light-color;
   //cursor: pointer;
-  color: $yts-active-green;
+  //color: $yts-active-green;
   z-index: 999;
   border-radius: 1%;
 }
 
+.popUp-title {
+  color: $yts-active-green;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
 .dark-popup-bg {
   background-color: rgba(0, 0, 0, 0.2);
+  //background-color: red;
   width: 100vw;
   height: 100vh;
-  z-index: 0;
+  z-index: 10;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  position: absolute;
+  position: fixed;
+}
+
+//pagination
+
+.pagination {
+  //display: inline-block;
+}
+
+.pagination button {
+  color: #000;
+  float: inside;
+  padding: $sm $md-1;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 0 $xs;
 }
 
 

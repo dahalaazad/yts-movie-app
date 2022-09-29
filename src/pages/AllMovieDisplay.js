@@ -2,6 +2,7 @@ import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux"
 import {Link} from "react-router-dom";
 import {getMovies} from "../utils/getMovies";
+import ReactImageFallback from "react-image-fallback";
 
 export const AllMovieDisplay = ({moviesProp}) => {
     const movies = useSelector(state => state.movie.movies);
@@ -21,7 +22,12 @@ export const AllMovieDisplay = ({moviesProp}) => {
                                   directorId: mov.directorId
                               }}>
                             <div className="movie-poster">
-                                <img src={mov.medium_cover_image} alt=""/>
+                                {/*<img src={mov.medium_cover_image} alt=""/>*/}
+                                <ReactImageFallback
+                                    src={mov.medium_cover_image}
+                                    fallbackImage={`https://image.tmdb.org/t/p/original${mov.TMDB_poster}`}
+                                />
+
                             </div>
                             <div className="movie-details flex">
                                 {mov.language !== 'en' ?

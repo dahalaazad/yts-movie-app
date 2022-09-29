@@ -4,10 +4,10 @@ import {movieAxios, movieOMDBAxios, movieTMDBAxios, movieTMDBCastDetailsAxios} f
 export const GetRequest = (url, config) => {
     return movieAxios.get(url, config);
 }
-export const GetFurtherRequestOMDB = (url, config) => {
-    // console.log(url)
-    return movieOMDBAxios.get(url, config);
-}
+// export const GetFurtherRequestOMDB = (url, config) => {
+//     // console.log(url)
+//     return movieOMDBAxios.get(url, config);
+// }
 
 export const GetFurtherRequestTMDB = (url, config) => {
     // console.log(url)
