@@ -4,7 +4,10 @@ import {GetFurtherRequestOMDB, GetFurtherRequestTMDB, GetRequest, GetTMDBCastDet
 const TMDB_API_KEY = '6bfc07f764b6aef7f7051c8a0f3adc7c'
 
 
-export const APIGetAllMovies = (page) => {
+export const APIGetAllMovies = () => {
+    return GetRequest(`list_movies.json`);
+}
+export const APIBrowseMovies = (page) => {
     return GetRequest(`list_movies.json?page=${page}`);
 }
 

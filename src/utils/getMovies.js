@@ -1,4 +1,5 @@
 import {
+    APIBrowseMovies,
     APIGetAllMovies,
     APIGetFavMovies,
     APIGetFurtherOMDBDetails, APIGetFurtherTMDBDetails,
@@ -19,7 +20,7 @@ import {greatMovies} from "./favMovies";
 
 export const getMovies = (page) => async dispatch => {
     console.log(page)
-    const res = await APIGetAllMovies(page);
+    const res = await APIBrowseMovies(page);
     // console.log(res)
     const movieList = res?.data?.data?.movies
     //console.log(movieList)

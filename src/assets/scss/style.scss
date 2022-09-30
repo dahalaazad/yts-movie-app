@@ -354,6 +354,26 @@ nav {
 .movie-lower {
   background-color: $yts-dark-color;
 }
+.MuiPagination-ul {
+  background-color: none;
+  text-color: $light-color;
+
+}
+.css-1cq9nzt-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  background-color: $pagination-green !important;
+  color: $light-color !important;
+}
+.MuiPagination-ul>li {
+  padding: 8px 0 8px 0;
+}
+
+.MuiPagination-ul >li >button{
+  color: $light-color;
+  font-weight: bold;
+  border: 1px solid #333;
+  //margin: 8px 0 8px 0;
+
+}
 
 .yt-trailer {
   transform: translate(10%, -30%);
@@ -361,7 +381,7 @@ nav {
 }
 
 .movie-bg {
-  //position: absolute;
+  position: abs;
   left: 0;
   right: 0;
   width: 100%;
@@ -369,6 +389,11 @@ nav {
   height: 600px;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.home-bg {
+  background-repeat: no-repeat;
+  //background-size: cover;
 }
 
 .movie-title {
@@ -396,7 +421,7 @@ nav {
 .director-image, .cast-image {
   height: 80px;
   width: 60px;
-  clip-path: inset(0 0 15px 0 round 50px);
+  clip-path: inset(0 0 20px 0 round 50px);
   //overflow: hidden;
   //border-radius: 50%;
 }
@@ -439,8 +464,8 @@ nav {
 .overlay {
   position: fixed;
   //display: block;
-  width: 40%;
-  height: 50%;
+  width: 45%;
+  height: 65%;
   top: 12.5%;
   left: 30%;
   //right: 20%;
@@ -487,6 +512,39 @@ nav {
   margin: 0 $xs;
 }
 
+.dloads{
+
+}
+
+
+//video-quality-background
+
+.hd {
+  background-image: url('../../assets/svg/icon-720p.svg');
+  width: 101px;
+  height: 66px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.full-hd {
+  background-image: url('../../assets/svg/icon-1080p.svg');
+  width: 131px;
+  height:81px;
+}
+
+.four-K {
+  background-image: url('../../assets/svg/icon-2160p.svg');
+  width: 131px;
+  height: 81px;
+}
+
+.three-D {
+  background-image: url('../../assets/svg/icon-3D.svg');
+  width: 131px;
+  height: 81px;
+}
 
 //font-size
 
@@ -530,4 +588,7 @@ nav {
   font-size: $five-xl;
 }
 
+
+//magnet:?xt=urn:btih:8FCEDF52B1F0929DCBD84E12ECF9467707C8F868&dn=Dead+for+A+Dollar+%282022%29+%5B720p%5D+%5BYTS.MX%5D&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.ch%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=http%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce
+//                    8FCEDF52B1F0929DCBD84E12ECF9467707C8F868
 

@@ -10,7 +10,7 @@ export const Home = () => {
 
     //console.log(favMovies)
     return (
-        <div>
+        <div className='movie-lower'>
             <AllMovieDisplay moviesProp={homeMovies}/>
         </div>
     );

@@ -18,7 +18,7 @@ export const FavMovies = () => {
     }
     // console.log(favMovies)
     return (
-        <div>
+        <div className='movie-lower'>
             <AllMovieDisplay moviesProp={favMovies}/>
         </div>
     );

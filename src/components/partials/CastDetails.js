@@ -10,7 +10,8 @@ export const CastDetails = ({movie}) => {
                 Director:
                 <div className="direct flex pa-md">
                     <a href={`https://www.themoviedb.org/person/${movie.directorId}`}
-                       target='_blank'>
+                       target='_blank'
+                       key={movie.directorId}>
                         {/*<img className='director-image' src={`https://image.tmdb.org/t/p/original/${directorPic}`}*/}
                         {/*     alt={`${director}_photo`}*/}
                         {/*/>*/}
@@ -28,10 +29,10 @@ export const CastDetails = ({movie}) => {
                 Cast:
                 {movie?.TMDB_cast?.slice(0, 4).map((actor, i) => (
 
-                    <a className="flex pa-md"
+                    <a className="flex pa-none"
                        href={`https://www.themoviedb.org/person/${actor.id}`}
                        target="_blank"
-                       key={actor.imdb_code}
+                       key={actor.id}
                     >
                         {/*<img className='cast-image' src={actor.url_small_image}*/}
                         {/*     // alt={`${actor.name}_photo`}*/}

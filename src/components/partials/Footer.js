@@ -2,7 +2,7 @@ export const Footer = () => {
     return (
         <div className='yts-header-footer pt-xl yts-grey'>
             <div className="upper flex justify-center">
-                <span className='px-md text-light'>YTS © 2022</span>
+                <span className='px-md text-light'>AD © 2022</span>
                 <span className='px-md'><a href="https://yts.mx/blog" target='_blank'>Blog</a></span>
                 <span className='px-md'>Home</span>
                 <span className='px-md'><a href="https://yts.mx/api" target='_blank'>API</a></span>
@@ -17,4 +17,3 @@ export const Footer = () => {
     );
 };
 
-export default Footer;

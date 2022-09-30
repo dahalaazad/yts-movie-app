@@ -60,7 +60,7 @@ export const MovieDetail = () => {
 
                         <h3 className='flex'>Available in:
                             <div className='flex px-sm'>
-                                {movie.torrents?.map((link, key) => (<a href={link.url} target="_blank" key={link.url}>
+                                {movie.torrents?.map((link) => (<a href={link.url} target="_blank" key={link.url}>
                                     <div className='pr-sm'>{link.quality}</div>
                                 </a>))}
                             </div>

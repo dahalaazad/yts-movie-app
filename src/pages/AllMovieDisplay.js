@@ -1,16 +1,16 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux"
 import {Link} from "react-router-dom";
 import {getMovies} from "../utils/getMovies";
 import ReactImageFallback from "react-image-fallback";
+import {YtsPagination} from "../components/YtsPagination";
 
 export const AllMovieDisplay = ({moviesProp}) => {
     const movies = useSelector(state => state.movie.movies);
     //console.log(moviesProp)
     return (
-        <section className='movie-bg' style={{
-            backgroundImage: `url(${movies[3]?.background_image_original})`
-        }}>
+        <section className='home-bg'>
+
             <div className="flex wrap justify-center all-movie">
                 {moviesProp.map((mov, key) => (
                     <div className="card ma-md movie-card" key={key}>
