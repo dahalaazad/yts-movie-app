@@ -39,8 +39,8 @@ export const MovieDetail = () => {
     }
     return (
         <section className='detail-section'>
-            <div className="top-half flex justify-around movie-bg" style={{
-                backgroundImage: `url(${movie.background_image_original})`
+            <div className="top-half flex justify-between movie-bg" style={{
+                background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(${movie.background_image_original})`
             }}>
                 <div className="movie-in-detail flex pa-md ">
                     <div className="left-half">
@@ -48,7 +48,7 @@ export const MovieDetail = () => {
                             {/*<img className='movie-poster' src={movie.medium_cover_image}*/}
                             {/*     alt={`${movie.title}-movie-poster`}/>*/}
                             <ReactImageFallback
-                                className='movie-poster'
+                                className='movie-detail-poster'
                                 src={movie.medium_cover_image}
                                 fallbackImage={`https://image.tmdb.org/t/p/original/${movie.TMDB_poster}`}
                             />

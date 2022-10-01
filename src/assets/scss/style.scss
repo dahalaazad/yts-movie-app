@@ -408,12 +408,18 @@ nav {
 .movie-poster {
   border: 5px solid $light-color;
   border-radius: 5px;
-  height: 345px;
-  width: 230px;
+  //height: 345px;
+  //width: 230px;
+}
+
+.movie-detail-poster {
+  border: 5px solid $light-color;
+  border-radius: 5px;
+  //height: 345px;
+  //width: 230px;
 }
 
 .movie-poster:hover {
-
   border: 5px solid $yts-active-green
 }
 
@@ -421,6 +427,11 @@ nav {
   z-index: 10;
   //background-color: rgba(0,0,0,.801);
   background-color: rgba(24, 24, 24, 0.8);
+}
+
+.movie-in-detail {
+  margin-left: 10%;
+  margin-top: 2%;
 }
 
 .movie-card {
@@ -484,7 +495,7 @@ nav {
   background-color: $pagination-green;
 }
 
-.font-italic{
+.font-italic {
   font-style: italic;
 }
 
@@ -575,9 +586,10 @@ nav {
 
 //main section
 
-.detail-section{
+.detail-section {
   font-family: $footer-font;
 }
+
 .plot {
   font-size: 1.25em;
   font-weight: bold;
