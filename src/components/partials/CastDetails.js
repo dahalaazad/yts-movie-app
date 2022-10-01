@@ -3,12 +3,12 @@ import defaultIcon from "../../assets/default_avatar.webp";
 
 
 export const CastDetails = ({movie}) => {
-    console.log(movie.TMDB_cast)
+    // console.log(movie.TMDB_cast)
     return (
         <div className="persons-in-movie">
             <div className="director">
                 Director:
-                <div className="direct flex pa-md">
+                <div className="direct flex pa-sm">
                     <a href={`https://www.themoviedb.org/person/${movie.directorId}`}
                        target='_blank'
                        key={movie.directorId}>
@@ -29,7 +29,7 @@ export const CastDetails = ({movie}) => {
                 Cast:
                 {movie?.TMDB_cast?.slice(0, 4).map((actor, i) => (
 
-                    <a className="flex pa-none"
+                    <a className="flex mt-sm pl-sm"
                        href={`https://www.themoviedb.org/person/${actor.id}`}
                        target="_blank"
                        key={actor.id}

@@ -24,6 +24,7 @@ export const AllMovieDisplay = ({moviesProp}) => {
                             <div className="movie-poster">
                                 {/*<img src={mov.medium_cover_image} alt=""/>*/}
                                 <ReactImageFallback
+                                    className='movie-poster-overlay'
                                     src={mov.medium_cover_image}
                                     fallbackImage={`https://image.tmdb.org/t/p/original${mov.TMDB_poster}`}
                                 />

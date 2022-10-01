@@ -354,20 +354,23 @@ nav {
 .movie-lower {
   background-color: $yts-dark-color;
 }
+
 .MuiPagination-ul {
   background-color: none;
   text-color: $light-color;
 
 }
+
 .css-1cq9nzt-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
   background-color: $pagination-green !important;
   color: $light-color !important;
 }
-.MuiPagination-ul>li {
+
+.MuiPagination-ul > li {
   padding: 8px 0 8px 0;
 }
 
-.MuiPagination-ul >li >button{
+.MuiPagination-ul > li > button {
   color: $light-color;
   font-weight: bold;
   border: 1px solid #333;
@@ -407,6 +410,17 @@ nav {
   border-radius: 5px;
   height: 345px;
   width: 230px;
+}
+
+.movie-poster:hover {
+
+  border: 5px solid $yts-active-green
+}
+
+.movie-poster-overlay:hover {
+  z-index: 10;
+  //background-color: rgba(0,0,0,.801);
+  background-color: rgba(24, 24, 24, 0.8);
 }
 
 .movie-card {
@@ -461,6 +475,19 @@ nav {
 
 //overlay effect
 
+.dload-button {
+  cursor: pointer;
+  border-radius: $xs;
+}
+
+.dload-button:hover {
+  background-color: $pagination-green;
+}
+
+.font-italic{
+  font-style: italic;
+}
+
 .overlay {
   position: fixed;
   //display: block;
@@ -484,8 +511,7 @@ nav {
 }
 
 .dark-popup-bg {
-  background-color: rgba(0, 0, 0, 0.2);
-  //background-color: red;
+  background-color: rgba(24, 24, 24, 0.8);
   width: 100vw;
   height: 100vh;
   z-index: 10;
@@ -512,7 +538,7 @@ nav {
   margin: 0 $xs;
 }
 
-.dloads{
+.dloads {
 
 }
 
@@ -531,7 +557,7 @@ nav {
 .full-hd {
   background-image: url('../../assets/svg/icon-1080p.svg');
   width: 131px;
-  height:81px;
+  height: 81px;
 }
 
 .four-K {
@@ -544,6 +570,17 @@ nav {
   background-image: url('../../assets/svg/icon-3D.svg');
   width: 131px;
   height: 81px;
+}
+
+
+//main section
+
+.detail-section{
+  font-family: $footer-font;
+}
+.plot {
+  font-size: 1.25em;
+  font-weight: bold;
 }
 
 //font-size

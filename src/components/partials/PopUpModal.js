@@ -1,6 +1,7 @@
 import CloseIcon from "@mui/icons-material/Close";
 import {useSelector} from "react-redux";
-import HD_Icon from "../../assets/svg/icon-720p.svg";
+import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
+import magnetIcon from "../../assets/svg/icons8-magnet-49.png";
 
 
 export const PopUpModal = ({setOpen}) => {
@@ -50,20 +51,29 @@ export const PopUpModal = ({setOpen}) => {
                         <CloseIcon onClick={() => setOpen(false)} style={{cursor: 'pointer'}}/>
                     </div>
                 </div>
-                <div className="flex text-primary px-md py-lg">
+                <div className="flex justify-evenly text-primary px-md py-lg">
                     {movie.torrents.map(torrent => (
-                            <>
-                                <div className='dloads' key={torrent.hash}>
-                                    <div
-                                        className={`${videoQuality(torrent.quality)}`}
-                                        key={torrent.hash}></div>
-                                    <div>{torrentType(torrent.type)}</div>
-                                    <div>File Size</div>
-                                    <div>{torrent.size}</div>
-                                    <div>Download button</div>
-                                    <div>magnet</div>
+
+                            <div className='dloads pa-md flex-col justify-center' key={torrent.hash}>
+                                <div className={`${videoQuality(torrent.quality)}`}/>
+                                <div className='py-md'>{torrentType(torrent.type)}</div>
+                                <div className='pb-md'>File Size</div>
+                                <div className='pb-md'>{torrent.size}</div>
+                                <div href={`${torrent.url}`}
+                                     target='_blank'
+                                     title={`Download ${movie.title} ${torrent.quality} Torrent`}
+                                     className='dload-button bg-yts-green pa-md'>
+                                    <SystemUpdateAltIcon/>
+                                    <span className='text-light px-sm bold'>Download</span>
                                 </div>
-                            </>
+                                <a
+                                    href={`magnet:?xt=urn:btih:${torrent.hash}&tr=http://urlto/announce`}
+                                    target='_blank'
+                                    className='ma-lg'>
+                                    <img className='mt-md' src={magnetIcon} alt="magnet-icon"/>
+                                </a>
+                            </div>
+
 
                         )
                     )

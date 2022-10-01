@@ -19,7 +19,7 @@ import {greatMovies} from "./favMovies";
 // }
 
 export const getMovies = (page) => async dispatch => {
-    console.log(page)
+    // console.log(page)
     const res = await APIBrowseMovies(page);
     // console.log(res)
     const movieList = res?.data?.data?.movies
@@ -51,7 +51,7 @@ export const getMovie = (id) => async dispatch => {
     //console.log(TMDB_Details)
     const TMDB_Code = TMDB_Details?.data?.movie_results[0]?.id
     const TMDB_movie_poster = TMDB_Details?.data?.movie_results[0]?.poster_path;
-    console.log(TMDB_movie_poster)
+    // console.log(TMDB_movie_poster)
     const TMDB_Cast_Details = await APIGetTMDBCastDetails(TMDB_Code);
     const TMDB_Director = TMDB_Cast_Details?.data?.crew.filter(a => a.job === 'Director')
     //console.log(TMDB_Director[0])
