@@ -54,25 +54,29 @@ export const MovieDetail = () => {
                             />
                         </div>
                         <div className="text-light text-center yts-font">
-                            <div className='dload-button bg-yts-green py-sm my-md mr-lg flex justify-center' onClick={() => setOpen(true)}>
+                            <div className='dload-button bg-yts-green py-sm my-md mr-lg flex justify-center'
+                                 onClick={() => setOpen(true)}>
                                 <SystemUpdateAltIcon/>
                                 <span className='px-sm bold'>Download</span>
                             </div>
                             {open && <PopUpModal setOpen={setOpen} torrents={movie.torrents}/>}
                         </div>
                     </div>
-                    <div className="details movie-title">
-                        <h3 className='fs-xl'>{movie.title || ''}</h3>
-                        <h3>{movie.year} {`[${movie.language?.toUpperCase()}]`}</h3>
+                    <div className="details movie-title yts-font pl-four-xl">
+                        <h3 className='fs-xl movie-title-font pb-lg'>{movie.title || ''}</h3>
+                        <h3 className='movie-year bold'>
+                            {movie.year}
+                            <span className='lang-text fs-md pl-xs'>{`[${movie.language?.toUpperCase()}]`}</span>
+                        </h3>
                         {/* index if not 0, insert '/' before the element in the array */}
-                        <h3>{movie.genres?.map((film, i) => (i ? '/ ' : '') + film)}</h3>
+                        <h3 className='bold'>{movie.genres?.map((film, i) => (i ? '/ ' : '') + film)}</h3>
 
                         {/* use conditional statement to not give '/' to last element in the genre array */}
 
-                        <h3 className='flex'>Available in:
+                        <h3 className='flex py-lg'><span className='font-italic pt-xs'>Available in:</span>
                             <div className='flex px-sm'>
                                 {movie.torrents?.map((link) => (<a href={link.url} target="_blank" key={link.url}>
-                                    <div className='pr-sm'>{link.quality}</div>
+                                    <div className='torrent-link pr-sm mx-xs'>{link.quality}</div>
                                 </a>))}
                             </div>
                         </h3>
@@ -82,7 +86,7 @@ export const MovieDetail = () => {
                                     <img src={imdbLogo} alt='imdbLogo'
                                          className='pr-md'/>
                                 </a>
-                                {parseFloat(movie.rating).toFixed(1)}
+                               <span className='bold'> {parseFloat(movie.rating).toFixed(1)}</span>
                             </h3>
                         </div>
                     </div>
@@ -93,14 +97,14 @@ export const MovieDetail = () => {
             </div>
 
 
-
             <div className='movie-lower text-light'>
                 <YoutubeTrailerEmbed trailerCode={movie.yt_trailer_code}/>
 
                 <div className="lower-half  flex py-lg justify-evenly">
                     <div className="synopsis" style={{width: '60%'}}>
                         <h3 className=' plot block'>Plot Summary</h3>
-                        <p  className='yts-grey' style={{whiteSpace: 'wrap', textAlign: 'justify'}}>{movie.description_full}</p>
+                        <p className='yts-grey'
+                           style={{whiteSpace: 'wrap', textAlign: 'justify'}}>{movie.description_full}</p>
                         <p className='font-italic yts-grey mt-xl'>Uploaded by: <span>FREEMAN</span></p>
                         <p className=' yts-grey font-italic'>{moment(movie.date_uploaded).format('MMMM DD, YYYY [at] h:mm A')} </p>
                     </div>

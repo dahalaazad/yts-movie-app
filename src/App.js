@@ -20,7 +20,7 @@ function App() {
 
     return (
         <>
-            <MainLayout/>
+            <MainLayout className='yts-font'/>
         </>
     );
 }

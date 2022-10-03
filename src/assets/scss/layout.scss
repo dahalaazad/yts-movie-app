@@ -310,6 +310,18 @@ body {
   padding-left: $xxl;
 }
 
+.pl-three-xl {
+  padding-left: $three-xl;
+}
+
+.pl-four-xl {
+  padding-left: $four-xl;
+}
+
+.pl-five-xl {
+  padding-left: $five-xl;
+}
+
 //padding-bottom
 .pb-xs {
   padding-bottom: $xs;
@@ -444,6 +456,22 @@ body {
   margin: $xl;
 }
 
+.ma-xxl {
+  margin: $xxl;
+}
+
+.ma-three-xl {
+  margin: $three-xl;
+}
+
+.ma-four-xl {
+  margin: $four-xl;
+}
+
+.ma-five-xl {
+  margin: $five-xl;
+}
+
 
 //margin-top
 .mt-xs {
@@ -548,6 +576,22 @@ body {
 
 .mb-xl {
   margin-bottom: $xl;
+}
+
+.mb-xxl {
+  margin-bottom: $xxl;
+}
+
+.mb-three-xl {
+  margin-bottom: $three-xl;
+}
+
+.mb-four-xl {
+  margin-bottom: $four-xl;
+}
+
+.mb-five-xl {
+  margin-bottom: $five-xl;
 }
 
 
