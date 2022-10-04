@@ -4,6 +4,9 @@ import {Link} from "react-router-dom";
 import {getMovies} from "../utils/getMovies";
 import ReactImageFallback from "react-image-fallback";
 import {YtsPagination} from "../components/YtsPagination";
+import StarIcon from '@mui/icons-material/Star';
+import {ThemeProvider} from "@mui/material";
+import {theme} from "../utils/Mui-Colors";
 
 export const AllMovieDisplay = ({moviesProp}) => {
     const movies = useSelector(state => state.movie.movies);
@@ -24,17 +27,25 @@ export const AllMovieDisplay = ({moviesProp}) => {
                                   }}>
 
                                 <ReactImageFallback
-                                    className='content-image'
+                                    className='content-image movie-poster'
                                     src={mov.medium_cover_image}
                                     fallbackImage={`https://image.tmdb.org/t/p/original${mov.TMDB_poster}`}
                                 />
                                 <div className="content-overlay"></div>
-                                <div className="content-details fadeIn-bottom">
-                                    <h3 className="content-title">{mov.rating}</h3>
-                                    <p className="content-text">{mov?.genres?.map(item => (
+                                <div className="content-details fadeIn-bottom fs-xl">
+                                    <ThemeProvider theme={theme}>
+                                        <StarIcon color='green' fontSize="large"/>
+                                    </ThemeProvider>
+                                    <h3 className="content-title fw-700 fs-lg">
+                                        <span className='px-xs fw-700'>{mov.rating}</span>
+                                        <span className='fw-700'>/</span>
+                                        <span className='px-xs fw-700'>10</span>
+                                    </h3>
+                                    <p className="content-text fs-md">{mov?.genres?.slice(0,2).map(item => (
                                         <span className='text-light block bold'>{item}</span>))}</p>
-                                    <button className='bg-yts-active text-light'>View Details</button>
+                                    <button className='view-details-btn bg-yts-active text-light py-sm px-lg fs-md-1'>View Details</button>
                                 </div>
+
                             </Link>
                         </div>
 
@@ -47,7 +58,7 @@ export const AllMovieDisplay = ({moviesProp}) => {
                                     : null
                                 }
                                 <div className="">
-                                    {mov.title.length > 27 ? mov.title.substring(0, 27) + '...' : mov.title}
+                                    {mov.title.length > 21 ? mov.title.substring(0, 21) + '...' : mov.title}
                                 </div>
 
                             </div>
@@ -55,44 +66,6 @@ export const AllMovieDisplay = ({moviesProp}) => {
                         </div>
 
                     </div>
-
-                    // <div className="card ma-md movie-card" key={key}>
-                    //     <Link to={`/movies/${mov.slug}`}
-                    //           state={{
-                    //               currentMovieId: mov.id,
-                    //               director: mov.director,
-                    //               directorPic: mov.directorPic,
-                    //               directorId: mov.directorId
-                    //           }}>
-                    //         <div className="movie-poster">
-                    //             {/*<img src={mov.medium_cover_image} alt=""/>*/}
-                    //             <ReactImageFallback
-                    //                 className='movie-poster-overlay'
-                    //                 src={mov.medium_cover_image}
-                    //                 fallbackImage={`https://image.tmdb.org/t/p/original${mov.TMDB_poster}`}
-                    //             />
-                    //             <div className="one">
-                    //                 <span>Comedy</span>
-                    //             </div>
-                    //
-                    //         </div>
-                    //         <div className="movie-details flex">
-                    //             {mov.language !== 'en' ?
-                    //                 <div className="movie-language pr-xs">
-                    //                     [{mov.language.toUpperCase()}]
-                    //                 </div>
-                    //                 : null
-                    //             }
-                    //             <div className="">
-                    //                 {mov.title.length > 27 ? mov.title.substring(0, 27) + '...' : mov.title}
-                    //             </div>
-                    //         </div>
-                    //
-                    //     </Link>
-                    //     <div className="movie-year">
-                    //         {mov.year}
-                    //     </div>
-                    // </div>
                 ))}
             </div>
         </section>

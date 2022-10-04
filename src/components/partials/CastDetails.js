@@ -45,7 +45,7 @@ export const CastDetails = ({movie}) => {
                             src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}
                             fallbackImage={defaultIcon}
                         />
-                        <p className='pa-md'>{actor.name} as {actor.character} </p>
+                        <p className='pa-md'><span className='yts-grey'>{actor.name}</span> as {actor.character} </p>
                     </a>
                 ))}
             </div>

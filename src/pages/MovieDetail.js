@@ -11,6 +11,9 @@ import {PopUpModal} from "../components/partials/PopUpModal";
 import {CastDetails} from "../components/partials/CastDetails";
 import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
 import moment from "moment";
+import {theme} from "../utils/Mui-Colors";
+import StarIcon from "@mui/icons-material/Star";
+import {ThemeProvider} from "@mui/material";
 
 
 export const MovieDetail = () => {
@@ -40,7 +43,7 @@ export const MovieDetail = () => {
     return (
         <section className='detail-section'>
             <div className="top-half flex justify-between movie-bg" style={{
-                background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(${movie.background_image_original})`
+                background: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ),url(${movie.background_image_original})`
             }}>
                 <div className="movie-in-detail flex pa-md ">
                     <div className="left-half">
@@ -48,7 +51,7 @@ export const MovieDetail = () => {
                             {/*<img className='movie-poster' src={movie.medium_cover_image}*/}
                             {/*     alt={`${movie.title}-movie-poster`}/>*/}
                             <ReactImageFallback
-                                className='movie-detail-poster'
+                                className='movie-poster'
                                 src={movie.medium_cover_image}
                                 fallbackImage={`https://image.tmdb.org/t/p/original/${movie.TMDB_poster}`}
                             />
@@ -56,7 +59,10 @@ export const MovieDetail = () => {
                         <div className="text-light text-center yts-font">
                             <div className='dload-button bg-yts-green py-sm my-md mr-lg flex justify-center'
                                  onClick={() => setOpen(true)}>
-                                <SystemUpdateAltIcon/>
+                                <ThemeProvider theme={theme}>
+                                    <SystemUpdateAltIcon color='grey'/>
+                                </ThemeProvider>
+
                                 <span className='px-sm bold'>Download</span>
                             </div>
                             {open && <PopUpModal setOpen={setOpen} torrents={movie.torrents}/>}
@@ -98,11 +104,11 @@ export const MovieDetail = () => {
 
 
             <div className='movie-lower text-light'>
-                <YoutubeTrailerEmbed trailerCode={movie.yt_trailer_code}/>
+                    <YoutubeTrailerEmbed trailerCode={movie.yt_trailer_code}/>
 
-                <div className="lower-half  flex py-lg justify-evenly">
-                    <div className="synopsis" style={{width: '60%'}}>
-                        <h3 className=' plot block'>Plot Summary</h3>
+                <div className="lower-half flex py-lg justify-evenly">
+                    <div className="synopsis" style={{width: '50%'}}>
+                        <h3 className='plot block pb-xl'>Plot Summary</h3>
                         <p className='yts-grey'
                            style={{whiteSpace: 'wrap', textAlign: 'justify'}}>{movie.description_full}</p>
                         <p className='font-italic yts-grey mt-xl'>Uploaded by: <span>FREEMAN</span></p>

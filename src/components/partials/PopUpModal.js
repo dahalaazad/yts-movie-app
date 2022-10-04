@@ -59,13 +59,13 @@ export const PopUpModal = ({setOpen}) => {
                                 <div className='py-md'>{torrentType(torrent.type)}</div>
                                 <div className='pb-md'>File Size</div>
                                 <div className='pb-md'>{torrent.size}</div>
-                                <div href={`${torrent.url}`}
+                                <a href={`${torrent.url}`}
                                      target='_blank'
                                      title={`Download ${movie.title} ${torrent.quality} Torrent`}
                                      className='dload-button bg-yts-green pa-md'>
                                     <SystemUpdateAltIcon/>
                                     <span className='text-light px-sm bold'>Download</span>
-                                </div>
+                                </a>
                                 <a
                                     href={`magnet:?xt=urn:btih:${torrent.hash}&tr=http://urlto/announce`}
                                     target='_blank'
