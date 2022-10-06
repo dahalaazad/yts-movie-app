@@ -14,6 +14,7 @@ import moment from "moment";
 import {theme} from "../utils/Mui-Colors";
 import StarIcon from "@mui/icons-material/Star";
 import {ThemeProvider} from "@mui/material";
+import {torrentType} from "../utils/torrentType";
 
 
 export const MovieDetail = () => {
@@ -47,11 +48,11 @@ export const MovieDetail = () => {
             }}>
                 <div className="movie-in-detail flex pa-md ">
                     <div className="left-half">
-                        <div className="poster-medium pr-lg ">
+                        <div className=" poster-medium pr-lg ">
                             {/*<img className='movie-poster' src={movie.medium_cover_image}*/}
                             {/*     alt={`${movie.title}-movie-poster`}/>*/}
                             <ReactImageFallback
-                                className='movie-poster'
+                                className='movie-poster movie-detail-poster '
                                 src={movie.medium_cover_image}
                                 fallbackImage={`https://image.tmdb.org/t/p/original/${movie.TMDB_poster}`}
                             />
@@ -72,7 +73,7 @@ export const MovieDetail = () => {
                         <h3 className='fs-xl movie-title-font pb-lg'>{movie.title || ''}</h3>
                         <h3 className='movie-year bold'>
                             {movie.year}
-                            <span className='lang-text fs-md pl-xs'>{`[${movie.language?.toUpperCase()}]`}</span>
+                            <span className='lang-text fs-md pl-xs'>{`[${movie?.language?.toUpperCase()}]`}</span>
                         </h3>
                         {/* index if not 0, insert '/' before the element in the array */}
                         <h3 className='bold'>{movie.genres?.map((film, i) => (i ? '/ ' : '') + film)}</h3>
@@ -82,7 +83,9 @@ export const MovieDetail = () => {
                         <h3 className='flex py-lg'><span className='font-italic pt-xs'>Available in:</span>
                             <div className='flex px-sm'>
                                 {movie.torrents?.map((link) => (<a href={link.url} target="_blank" key={link.url}>
-                                    <div className='torrent-link pr-sm mx-xs'>{link.quality}</div>
+                                    <div className='torrent-link pr-sm mx-xs'>
+                                        {`${link.quality}.${torrentType(link.type)}`}
+                                    </div>
                                 </a>))}
                             </div>
                         </h3>
@@ -106,7 +109,7 @@ export const MovieDetail = () => {
             <div className='movie-lower text-light'>
                     <YoutubeTrailerEmbed trailerCode={movie.yt_trailer_code}/>
 
-                <div className="lower-half flex py-lg justify-evenly">
+                <div className="lower-half flex py-lg justify-around">
                     <div className="synopsis" style={{width: '50%'}}>
                         <h3 className='plot block pb-xl'>Plot Summary</h3>
                         <p className='yts-grey'

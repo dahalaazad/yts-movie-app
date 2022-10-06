@@ -2,43 +2,16 @@ import CloseIcon from "@mui/icons-material/Close";
 import {useSelector} from "react-redux";
 import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
 import magnetIcon from "../../assets/svg/icons8-magnet-49.png";
+import {torrentType} from "../../utils/torrentType";
+import {videoQuality} from "../../utils/videoQuality";
 
 
 export const PopUpModal = ({setOpen}) => {
     const movie = useSelector(state => state.movie.movie);
     console.log(movie.torrents);
-    const videoQuality = (quality) => {
-        // console.log(quality)
-        switch (quality) {
-            case '720p':
-                return 'hd';
-            // console.log('hd');
-            case '1080p':
-                return 'full-hd';
-            // console.log('full-hd');
-            case '2160p':
-                return 'four-K';
-            // console.log('4K');
-            case '3D':
-                return 'three-D';
-            // console.log('3D');
-            default:
-                break;
-        }
-    }
 
-    const torrentType = (type) => {
-        switch (type) {
-            case 'web':
-                return 'WEB';
-            // console.log('hd');
-            case 'bluray':
-                return 'BluRay';
-            // console.log('full-hd');
-            default:
-                break;
-        }
-    }
+
+
 
     return (
         <>
