@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/ytswithredux/static/css/main.7f823077.css",
-    "main.js": "/ytswithredux/static/js/main.fba3998e.js",
-    "static/js/787.39952f69.chunk.js": "/ytswithredux/static/js/787.39952f69.chunk.js",
-    "static/media/icon-2160p.svg": "/ytswithredux/static/media/icon-2160p.022e668f77f6c20638ec.svg",
-    "static/media/icon-1080p.svg": "/ytswithredux/static/media/icon-1080p.61647169071b20185531.svg",
-    "static/media/icon-720p.svg": "/ytswithredux/static/media/icon-720p.b673d943f8a3db1734d7.svg",
-    "static/media/icon-3D.svg": "/ytswithredux/static/media/icon-3D.1510fb5df7a7328421fc.svg",
-    "static/media/logo-yts.svg": "/ytswithredux/static/media/logo-yts.345e48c69372197c93abbfcb18f4c479.svg",
-    "static/media/logo-imdb.svg": "/ytswithredux/static/media/logo-imdb.7f70f14482925fefdbd5cb9b193eb91a.svg",
-    "static/media/default_avatar.webp": "/ytswithredux/static/media/default_avatar.523ae8aa097c9a2fce5f.webp",
-    "index.html": "/ytswithredux/index.html",
-    "main.7f823077.css.map": "/ytswithredux/static/css/main.7f823077.css.map",
-    "main.fba3998e.js.map": "/ytswithredux/static/js/main.fba3998e.js.map",
-    "787.39952f69.chunk.js.map": "/ytswithredux/static/js/787.39952f69.chunk.js.map"
+    "main.css": "/yts-movie/static/css/main.eee2e193.css",
+    "main.js": "/yts-movie/static/js/main.76f2800e.js",
+    "static/js/787.39952f69.chunk.js": "/yts-movie/static/js/787.39952f69.chunk.js",
+    "static/media/icon-2160p.svg": "/yts-movie/static/media/icon-2160p.022e668f77f6c20638ec.svg",
+    "static/media/icon-1080p.svg": "/yts-movie/static/media/icon-1080p.61647169071b20185531.svg",
+    "static/media/icon-720p.svg": "/yts-movie/static/media/icon-720p.b673d943f8a3db1734d7.svg",
+    "static/media/icon-3D.svg": "/yts-movie/static/media/icon-3D.1510fb5df7a7328421fc.svg",
+    "static/media/logo-yts.svg": "/yts-movie/static/media/logo-yts.345e48c69372197c93abbfcb18f4c479.svg",
+    "static/media/logo-imdb.svg": "/yts-movie/static/media/logo-imdb.7f70f14482925fefdbd5cb9b193eb91a.svg",
+    "static/media/default_avatar.webp": "/yts-movie/static/media/default_avatar.523ae8aa097c9a2fce5f.webp",
+    "index.html": "/yts-movie/index.html",
+    "main.eee2e193.css.map": "/yts-movie/static/css/main.eee2e193.css.map",
+    "main.76f2800e.js.map": "/yts-movie/static/js/main.76f2800e.js.map",
+    "787.39952f69.chunk.js.map": "/yts-movie/static/js/787.39952f69.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7f823077.css",
-    "static/js/main.fba3998e.js"
+    "static/css/main.eee2e193.css",
+    "static/js/main.76f2800e.js"
   ]
 }
