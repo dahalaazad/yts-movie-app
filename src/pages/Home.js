@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {AllMovieDisplay} from "./AllMovieDisplay";
+import {AllMovieDisplay} from "../components/partials/AllMovieDisplay";
 import {useEffect} from "react";
 import {getMovies} from "../utils/getMovies";
 import {getFavMovies} from "../utils/favMovies";

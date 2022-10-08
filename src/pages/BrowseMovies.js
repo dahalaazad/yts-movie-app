@@ -1,5 +1,5 @@
 import axios from "axios";
-import {AllMovieDisplay} from "./AllMovieDisplay";
+import {AllMovieDisplay} from "../components/partials/AllMovieDisplay";
 import {useEffect, useState} from "react";
 import {getMovies} from "../utils/getMovies";
 import {useDispatch, useSelector} from "react-redux";

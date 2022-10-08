@@ -1,15 +1,17 @@
-import { Route, Routes } from "react-router-dom";
-import { ROUTES } from "../routes/routes";
-import {AllMovieDisplay} from '../pages/AllMovieDisplay';
-import { Search } from "../pages/Search";
+import {Routes, Route} from "react-router-dom";
+import {ROUTES} from "../routes/routes";
+import {AllMovieDisplay} from '../components/partials/AllMovieDisplay';
+import {Search} from "../pages/Search";
 import {FavMovies} from "../pages/FavMovies";
 import {Home} from "../pages/Home";
+import {MovieDetail} from "../pages/MovieDetail";
 
-export const AppRoutes = ()=>(
+export const AppRoutes = () => (
+
     <Routes>
-            <Route path={'/'} element={<Home/>} exact={true}/>
-        {ROUTES.map((route,key)=>(
-             <Route path={route.path} element={route.element} exact={route.exact} key={key}/>
+        {ROUTES.map((route, key) => (
+            <Route path={route.path} element={route.element} key={key}/>
         ))}
     </Routes>
+
 )

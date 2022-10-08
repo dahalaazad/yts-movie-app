@@ -31,9 +31,9 @@ export const MovieDetail = () => {
     //console.log(directorId)
 
     // console.log(moment(Date.parse(movie.date_uploaded)))
+        // MOMENT JS TIME FORMAT
+    // const time = moment(movie.date_uploaded).format('MMMM DD, YYYY, h:mm A')
 
-    const time = moment(movie.date_uploaded).format('MMMM DD, YYYY, h:mm A')
-    console.log(time)
     useEffect(async () => {
 
         await loadMovie();
@@ -107,7 +107,7 @@ export const MovieDetail = () => {
 
 
             <div className='movie-lower text-light'>
-                    <YoutubeTrailerEmbed trailerCode={movie.yt_trailer_code}/>
+                    {/*<YoutubeTrailerEmbed trailerCode={movie.yt_trailer_code}/>*/}
 
                 <div className="lower-half flex py-lg justify-around">
                     <div className="synopsis" style={{width: '50%'}}>

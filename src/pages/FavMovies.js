@@ -1,13 +1,16 @@
 import {useDispatch, useSelector} from "react-redux";
-import {AllMovieDisplay} from "./AllMovieDisplay";
+import {AllMovieDisplay} from "../components/partials/AllMovieDisplay";
 import {useEffect} from "react";
 import {getMovies} from "../utils/getMovies";
 import {getFavMovies} from "../utils/favMovies";
+import {FavMovieDisplay} from "./FavMovieDisplay";
+import {Outlet} from "react-router-dom";
 
 
 export const FavMovies = () => {
     const favMovies = useSelector(state => state.movie.favMovies);
     const dispatch = useDispatch();
+    const parentRoute = 'fav-movies'
     useEffect(async () => {
         await loadMovies();
     }, []);
@@ -19,7 +22,8 @@ export const FavMovies = () => {
     // console.log(favMovies)
     return (
         <div className='movie-lower'>
-            <AllMovieDisplay moviesProp={favMovies}/>
+            <FavMovieDisplay moviesProp={favMovies} parentRoute={parentRoute}/>
+            <Outlet/>
         </div>
     );
 };

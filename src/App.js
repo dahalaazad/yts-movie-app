@@ -7,7 +7,7 @@ import {getMovies} from "./utils/getMovies";
 
 
 
-function App() {
+export default function App() {
     const dispatch = useDispatch();
     useEffect(async () => {
         await loadMovies();
@@ -25,4 +25,4 @@ function App() {
     );
 }
 
-export default App;
+
