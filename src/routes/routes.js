@@ -6,10 +6,11 @@ import {Home} from "../pages/Home";
 import {BrowseMovies} from "../pages/BrowseMovies";
 
 export const ROUTES = [
-    {path: '/', element: <Home/>},
-    {path: '/browse', element: <BrowseMovies/>},
-    {path: '/fav-movies', element: <FavMovies/>},
-    {path: '/fav-movies/:slug', element: <MovieDetail/>},
-    {path: '/:slug', element: <MovieDetail/>},
-    {path: '/search/:keyword', element: <Search/>},
+    {path: '/yts-movie-app', element: <Home/>},
+    {path: '/yts-movie-app/browse', element: <BrowseMovies/>},
+    {path: '/yts-movie-app/fav-movies', element: <FavMovies/>},
+    {path: '/yts-movie-app/fav-movies/:slug', element: <MovieDetail/>},
+    {path: '/yts-movie-app/:slug', element: <MovieDetail/>},
+    {path: '/yts-movie-app/browse/:slug', element: <MovieDetail/>},
+    {path: '/yts-movie-app/search/:keyword', element: <Search/>},
 ]

@@ -10,6 +10,7 @@ import {getMovies} from "./utils/getMovies";
 export default function App() {
     const dispatch = useDispatch();
     useEffect(async () => {
+        document.title = 'YTS Movie App'
         await loadMovies();
     }, []);
 

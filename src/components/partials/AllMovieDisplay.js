@@ -7,31 +7,39 @@ import {YtsPagination} from "../YtsPagination";
 import StarIcon from '@mui/icons-material/Star';
 import {ThemeProvider} from "@mui/material";
 import {theme} from "../../utils/Mui-Colors";
+import noImage from '../../assets/svg/noposter-big.svg'
 
-export const AllMovieDisplay = ({parentRoute,moviesProp}) => {
+export const AllMovieDisplay = ({moviesProp}) => {
     // const movies = useSelector(state => state.movie.movies);
     // console.log(moviesProp)
+
+    const addImageFallback = (e) => {
+        e.currentTarget.src = noImage
+        e.currentTarget.className = 'movie-poster'
+
+    }
     return (
         <section className='home-bg yts-font'>
 
             <div className="flex wrap justify-center all-movie">
-                {moviesProp.map((mov, key) => (
+                {moviesProp.map((mov, index) => (
 
 
                     <div className="container pa-xl mb-four-xl">
 
                         <div className="content mx-lg movie-poster-border">
                             <Link
-                                onClick={()=>console.log(mov.slug)}
+                                onClick={() => console.log(mov.slug)}
                                 to={`${mov.slug}`}
-                                  state={{
-                                      currentMovieId: mov.id
-                                  }}>
+                                state={{
+                                    currentMovieId: mov.id
+                                }}>
 
-                                <ReactImageFallback
-                                    className='content-image movie-poster'
+                                <img
+                                    className='content-image'
                                     src={mov.medium_cover_image}
-                                    fallbackImage={`https://image.tmdb.org/t/p/original${mov.TMDB_poster}`}
+                                    // fallbackImage={`https://image.tmdb.org/t/p/original${mov.TMDB_poster}`}
+                                    onError={addImageFallback}
                                 />
                                 <div className="content-overlay"></div>
                                 <div className="content-details fadeIn-bottom fs-xl">
@@ -39,13 +47,16 @@ export const AllMovieDisplay = ({parentRoute,moviesProp}) => {
                                         <StarIcon color='green' fontSize="large"/>
                                     </ThemeProvider>
                                     <h3 className="content-title fw-700 fs-lg">
-                                        <span className='px-xs fw-700'>{mov.rating}</span>
+                                        <span key={mov.rating} className='px-xs fw-700'>{mov.rating}</span>
                                         <span className='fw-700'>/</span>
                                         <span className='px-xs fw-700'>10</span>
                                     </h3>
-                                    <p className="content-text fs-md">{mov?.genres?.slice(0,2).map(item => (
+                                    <p className="content-text fs-md">{mov?.genres?.slice(0, 2).map(item => (
                                         <span className='text-light block bold'>{item}</span>))}</p>
-                                    <button className='view-details-btn bg-yts-active text-light py-sm px-lg fs-md-1'>View Details</button>
+                                    <button
+                                        className='view-details-btn bg-yts-active text-light py-sm px-lg fs-md-1'>View
+                                        Details
+                                    </button>
                                 </div>
 
                             </Link>

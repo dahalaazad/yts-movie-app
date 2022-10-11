@@ -5,7 +5,7 @@ body {
   color: $text-color;
 }
 
-body,html{
+body, html {
   font-family: $yts-font;
 }
 
@@ -303,7 +303,7 @@ body,html{
   font-weight: bolder;
 }
 
-.fw-700{
+.fw-700 {
   font-weight: 700;
 }
 
@@ -415,6 +415,7 @@ nav {
   //font-size: $xxl;
   color: #ffffff;
 }
+
 .movie-detail-poster {
   border: 5px solid $light-color;
   border-radius: 5px;
@@ -426,6 +427,7 @@ nav {
   //height: 345px;
   //width: 230px;
 }
+
 .movie-poster-border:hover {
   border: 5px solid $yts-active-green;
 
@@ -450,19 +452,24 @@ nav {
   align-items: center;
   justify-content: center;
 }
+
 //.one:hover{
 //  display: block;
 //  opacity: 1;
 //  width: 100%;
 //}
-.movie-poster{
-  width: 100%;
+.movie-poster {
+  //width: 100%;
+  //height:150%;
+  aspect-ratio: 2/3;
 }
-.movie-poster-overlay{
+
+.movie-poster-overlay {
   display: block;
   width: 50%;
   height: auto;
 }
+
 //.movie-poster-overlay:hover {
 //  //z-index: 10;
 //  //background-color: rgba(0,0,0,.801);
@@ -595,8 +602,12 @@ nav {
   margin: 0 $xs;
 }
 
-.dloads {
+.dloads-holder .dloads {
+  border-right: 1px solid black;
+}
 
+.dloads-holder .dloads:last-child {
+  border-right: none;
 }
 
 
@@ -609,24 +620,29 @@ nav {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  margin-top: 15px;
+  margin-left: 10px;
 }
 
 .full-hd {
   background-image: url('../../assets/svg/icon-1080p.svg');
   width: 131px;
   height: 81px;
+  //margin-left: 10px;
 }
 
 .four-K {
   background-image: url('../../assets/svg/icon-2160p.svg');
   width: 131px;
   height: 81px;
+  //margin-left: 10px;
 }
 
 .three-D {
   background-image: url('../../assets/svg/icon-3D.svg');
   width: 131px;
   height: 81px;
+  margin-left: 10px;
 }
 
 
@@ -684,28 +700,28 @@ nav {
 }
 
 
-.movie-title-font{
+.movie-title-font {
   font-size: 2.5em;
   font-weight: bold;
 }
 
-.movie-year{
+.movie-year {
   font-weight: 1.25em;
 }
 
-.torrent-link{
+.torrent-link {
   background-color: $torrent-bg;
   padding: $xs $sm;
-  border: 1px solid rgba(255,255,255,.16);
+  border: 1px solid rgba(255, 255, 255, .16);
   font-size: 0.9em;
   border-radius: $xs;
 }
 
-.torrent-link:hover{
+.torrent-link:hover {
   color: $torrent-hover;
 }
 
-.lang-text{
+.lang-text {
   color: $lang-text-color;
 
 }
@@ -713,22 +729,23 @@ nav {
 
 //Movie overlay
 
-.container{
+.container {
   //padding: 1em 0;
   float: left;
   width: 50%;
   max-width: 300px;
   max-height: 370px;
 }
-@media screen and (max-width: 640px){
-  .container{
+
+@media screen and (max-width: 640px) {
+  .container {
     display: block;
     width: 50%;
   }
 }
 
-@media screen and (min-width: 900px){
-  .container{
+@media screen and (min-width: 900px) {
+  .container {
     //width: 33.33333%;
 
     width: 40%; //This gives four movies per row
@@ -736,7 +753,7 @@ nav {
   }
 }
 
-.container .title{
+.container .title {
   color: #1a1a1a;
   text-align: center;
   margin-bottom: 10px;
@@ -751,7 +768,7 @@ nav {
 }
 
 .content .content-overlay {
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   position: absolute;
   height: 100%;
   width: 100%;
@@ -765,11 +782,11 @@ nav {
   transition: all 0.4s ease-in-out 0s;
 }
 
-.content:hover .content-overlay{
+.content:hover .content-overlay {
   opacity: 1;
 }
 
-.content-image{
+.content-image {
   width: 100%;
   height: 100%;
 }
@@ -791,13 +808,13 @@ nav {
   transition: all 0.3s ease-in-out 0s;
 }
 
-.content:hover .content-details{
+.content:hover .content-details {
   top: 50%;
   left: 50%;
   opacity: 1;
 }
 
-.content-details h3{
+.content-details h3 {
   color: #fff;
   font-weight: 500;
   //letter-spacing: 0.15em;
@@ -805,21 +822,21 @@ nav {
   text-transform: uppercase;
 }
 
-.content-details p{
+.content-details p {
   color: #fff;
   font-size: 0.8em;
 }
 
-.view-details-btn{
+.view-details-btn {
   border-radius: $xs;
 }
 
-.lower-half{
+.lower-half {
   margin-left: 5%;
 }
 
-.sc-hover:hover{
-  opacity:.65;
+.sc-hover:hover {
+  opacity: .65;
   visibility: visible;
 }
 
