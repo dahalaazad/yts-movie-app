@@ -1,8 +1,8 @@
 import {AllMovieDisplay} from "../components/partials/AllMovieDisplay";
 
 
-export const FavMovieDisplay = ({moviesProp,parentRoute}) => {
-    return <AllMovieDisplay moviesProp={moviesProp} parentRoute={parentRoute}/>
+export const FavMovieDisplay = ({data}) => {
+    return <AllMovieDisplay data={data} />
 };
 
 

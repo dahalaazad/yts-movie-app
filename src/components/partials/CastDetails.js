@@ -29,7 +29,7 @@ export const CastDetails = ({movie}) => {
                 Cast:
                 {movie?.TMDB_cast?.slice(0, 4).map((actor, i) => (
 
-                    <div className="flex mt-sm pl-sm">
+                    <div className="flex mt-sm pl-sm" key={i}>
                         <a className='flex'
                            href={`https://www.themoviedb.org/person/${actor.id}`}
                            target="_blank"

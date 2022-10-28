@@ -1,7 +1,7 @@
 {
   "name": "ytsmovie",
   "version": "0.1.0",
-  "homepage": "https://dahalaazad.github.io/ytswithredux",
+  "homepage": "https://dahalaazad.github.io/yts-movie-app",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",

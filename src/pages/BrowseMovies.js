@@ -36,7 +36,7 @@ export const BrowseMovies = () => {
     return (
         <div className='bg-yts-dark'>
             <YtsPagination page={page} setPage={setPage}/>
-            <AllMovieDisplay moviesProp={movies}/>
+            <AllMovieDisplay data={movies}/>
         </div>
     );
 };

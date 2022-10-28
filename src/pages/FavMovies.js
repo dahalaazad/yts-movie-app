@@ -22,7 +22,7 @@ export const FavMovies = () => {
     // console.log(favMovies)
     return (
         <div className='movie-lower'>
-            <FavMovieDisplay moviesProp={favMovies} parentRoute={parentRoute}/>
+            <FavMovieDisplay data={favMovies}/>
             <Outlet/>
         </div>
     );

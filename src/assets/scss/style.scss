@@ -169,11 +169,11 @@ body, html {
   }
 
   input {
-    background: rgba(0, 0, 0, 0.12);
-    color: $text-color;
-    border-radius: $xs;
-    border: none;
-    padding: $sm;
+    //background: rgba(0, 0, 0, 0.12);
+    //color: $text-color;
+    //border-radius: $xs;
+    //border: none;
+    //padding: $sm;
 
     &.rounded {
       border-radius: 30px;
@@ -416,9 +416,22 @@ nav {
   color: #ffffff;
 }
 
+.movie-poster {
+  //width: 100%;
+  //height:150%;
+  aspect-ratio: 2/3;
+}
+
 .movie-detail-poster {
   border: 5px solid $light-color;
   border-radius: 5px;
+}
+
+.movie-error-poster {
+  border: 5px solid $light-color;
+  border-radius: 5px;
+  height: 339px;
+  width: 226px;
 }
 
 .movie-poster-border {
@@ -431,6 +444,30 @@ nav {
 .movie-poster-border:hover {
   border: 5px solid $yts-active-green;
 
+}
+
+.search-container{
+  //color: $yts-dark-color;
+  border-radius: 20px;
+}
+
+.search {
+  color: $yts-footer-grey;
+  font-family: $yts-font !important;
+  background-color: $yts-footer-dark !important;
+  border:2px solid $search-border !important;
+  caret-color: $light-color;
+}
+.search-input{
+  border: none;
+  background-color: #171717;
+}
+.search-input::placeholder{
+  color: $yts-footer-grey;
+  font-family: $yts-font !important;
+}
+.search-input:focus{
+  outline: none;
 }
 
 //.movie-detail-poster:hover {
@@ -458,11 +495,7 @@ nav {
 //  opacity: 1;
 //  width: 100%;
 //}
-.movie-poster {
-  //width: 100%;
-  //height:150%;
-  aspect-ratio: 2/3;
-}
+
 
 .movie-poster-overlay {
   display: block;
@@ -535,6 +568,11 @@ nav {
 
 .yts-grey {
   color: $yts-footer-grey;
+}
+
+.poster-medium {
+  //height: 360px;
+  width: 250px;
 }
 
 //overlay effect

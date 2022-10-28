@@ -15,6 +15,7 @@ export const Nav = () => (
         </Link>
 
         <div className="nav-items flex items-center">
+            <Search/>
             <Link to={'/yts-movie-app'} element={<Home/>}>
                 <div className="nav-item px-lg">Home</div>
             </Link>
@@ -25,7 +26,7 @@ export const Nav = () => (
                 <div className="nav-item px-lg">Favourite Movies</div>
             </Link>
             <div className="form-group pt-md">
-{/*<Search/>*/}
+
             </div>
         </div>
     </nav>

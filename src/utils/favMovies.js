@@ -11,18 +11,18 @@ import {setAllMovies, setFavMovies} from "../store/movieSlice";
 import {logDOM} from "@testing-library/react";
 
 export const greatMovies = [
+    {label: 'Inception', imdbCode: 'tt1375666'},
+    {label: 'Top Gun: Maverick', imdbCode: 'tt1745960'},
     {label: 'Batman Begins', imdbCode: 'tt0372784'},
     {label: 'The Dark Knight', imdbCode: 'tt0468569'},
     {label: 'The Dark Knight Rises', imdbCode: 'tt1345836'},
     {label: 'Forrest Gump', imdbCode: 'tt0109830'},
     {label: 'Cast Away', imdbCode: 'tt0162222'},
     {label: 'Iron Man', imdbCode: 'tt0371746'},
-    {label: 'Top Gun: Maverick', imdbCode: 'tt1745960'},
     {label: 'Andhadhun', imdbCode: 'tt8108198'},
     {label: 'The Usual Suspects', imdbCode: 'tt0114814'},
     {label: 'Schindler\'s List', imdbCode: 'tt0108052'},
     {label: 'Fight Club', imdbCode: 'tt0137523'},
-    {label: 'Inception', imdbCode: 'tt1375666'},
     {label: 'Goodfellas', imdbCode: 'tt0099685'},
     {label: '3 Idiots', imdbCode: 'tt1187043'},
     {label: 'Heat', imdbCode: 'tt0113277'},
@@ -50,9 +50,9 @@ export const getFavMovies = () => async dispatch => {
             const list = Promise.all(tmdbList.map(a => APIGetTMDBCastDetails(a.id))).then(
                 res1 => {
                     //console.log(res1)
-                    const crewList = res1.map(b => (b.data.crew).filter(c=>c.job==='Director'));
+                    const crewList = res1.map(b => (b.data.crew).filter(c => c.job === 'Director'));
 
-                    crewList.map((d,index) => {
+                    crewList.map((d, index) => {
                         //console.log(d[0])
                         movieList[index].director = d[0].name;
                         movieList[index].directorPic = d[0].profile_path;

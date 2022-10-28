@@ -8,6 +8,9 @@ export const theme = createTheme({
         },
         grey: {
             main: "rgba(72,70,70,0.45)"
-        }
+        },
+        search_grey: {
+            main:"#919191"
+        },
     }
 });

@@ -1,6 +1,9 @@
 import {useParams} from "react-router"
 import CreatableSelect from "react-select/creatable";
 import {useSelector} from "react-redux";
+import SearchIcon from '@mui/icons-material/Search';
+import {TextField, ThemeProvider} from "@mui/material";
+import {theme} from "../utils/Mui-Colors";
 
 
 //const movie
@@ -24,13 +27,18 @@ export const Search = () => {
     })
     //console.log('movie in search', movieList)
     return (
-        <section>
-            {/*<input type="text" placeholder="Search" className='text-white'/>*/}
-            <CreatableSelect options={movieList
-                // movies.map((mov,key)=>mov.title)
-            }/>
-            <h1>{keyword}</h1>
-            {/*{console.log(aquaticCreatures)}*/}
-        </section>
+        <div className='search-container'>
+            <div className="search flex w-[275px] px-2 py-sm rounded-full">
+
+                    <SearchIcon fontSize="small" />
+
+                <input
+                    type="text"
+                    // onChange={onChange}
+                    className='search-input px-md'
+                    placeholder='Quick search'
+                />
+            </div>
+        </div>
     )
 }

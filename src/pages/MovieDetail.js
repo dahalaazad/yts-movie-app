@@ -15,6 +15,7 @@ import {theme} from "../utils/Mui-Colors";
 import StarIcon from "@mui/icons-material/Star";
 import {ThemeProvider} from "@mui/material";
 import {torrentType} from "../utils/torrentType";
+import {customImageFallback} from "../utils/customImageFallback";
 
 
 export const MovieDetail = () => {
@@ -24,18 +25,16 @@ export const MovieDetail = () => {
     const movie = useSelector(state => state.movie.movie);
     const id = location.state?.currentMovieId;
     const [open, setOpen] = useState(false);
-    //const director = location.state?.director;
-    // const directorPic = location.state?.directorPic;
-    // const directorId = location.state?.directorId;
-    //console.log(movie.genres)
-    //console.log(directorId)
+
+
+    console.log(id)
 
     // console.log(moment(Date.parse(movie.date_uploaded)))
-        // MOMENT JS TIME FORMAT
+    // MOMENT JS TIME FORMAT
     // const time = moment(movie.date_uploaded).format('MMMM DD, YYYY, h:mm A')
 
-    useEffect(async () => {
 
+    useEffect(async () => {
         await loadMovie();
     }, [])
     const loadMovie = async () => {
@@ -48,13 +47,14 @@ export const MovieDetail = () => {
             }}>
                 <div className="movie-in-detail flex pa-md ">
                     <div className="left-half">
-                        <div className=" poster-medium pr-lg ">
+                        <div className="poster-medium pr-lg ">
                             {/*<img className='movie-poster' src={movie.medium_cover_image}*/}
                             {/*     alt={`${movie.title}-movie-poster`}/>*/}
-                            <ReactImageFallback
+                            <img
                                 className='movie-poster movie-detail-poster '
                                 src={movie.medium_cover_image}
-                                fallbackImage={`https://image.tmdb.org/t/p/original/${movie.TMDB_poster}`}
+                                onError={(e) => customImageFallback(e, movie.TMDB_poster,'movie-error-poster')}
+                                // fallbackImage={`https://image.tmdb.org/t/p/original/${movie.TMDB_poster}`}
                             />
                         </div>
                         <div className="text-light text-center yts-font">
@@ -95,7 +95,7 @@ export const MovieDetail = () => {
                                     <img src={imdbLogo} alt='imdbLogo'
                                          className='pr-md'/>
                                 </a>
-                               <span className='bold'> {parseFloat(movie.rating).toFixed(1)}</span>
+                                <span className='bold'> {parseFloat(movie.rating).toFixed(1)}</span>
                             </h3>
                         </div>
                     </div>
@@ -107,13 +107,17 @@ export const MovieDetail = () => {
 
 
             <div className='movie-lower text-light'>
-                    {/*<YoutubeTrailerEmbed trailerCode={movie.yt_trailer_code}/>*/}
+                {/*<YoutubeTrailerEmbed trailerCode={movie.yt_trailer_code}/>*/}
 
                 <div className="lower-half flex py-lg justify-around">
                     <div className="synopsis" style={{width: '50%'}}>
                         <h3 className='plot block pb-xl'>Plot Summary</h3>
                         <p className='yts-grey'
-                           style={{whiteSpace: 'wrap', textAlign: 'justify'}}>{movie.description_full}</p>
+                           style={{whiteSpace: 'wrap', textAlign: 'justify'}}>
+                            {movie.description_full !== ''
+                                ? movie.description_full
+                                : movie.TMDB_plot}
+                        </p>
                         <p className='font-italic yts-grey mt-xl'>Uploaded by: <span>FREEMAN</span></p>
                         <p className=' yts-grey font-italic'>{moment(movie.date_uploaded).format('MMMM DD, YYYY [at] h:mm A')} </p>
                     </div>

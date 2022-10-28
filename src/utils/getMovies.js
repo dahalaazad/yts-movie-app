@@ -44,24 +44,30 @@ export const getMovies = (page) => async dispatch => {
 }
 
 export const getMovie = (id) => async dispatch => {
+    // console.log(id)
     const res = await APIGetMovie(id);
+    // console.log(res)
     const movieDetails = res?.data?.data?.movie;
     // console.log(movieDetails)
     const TMDB_Details = await APIGetFurtherTMDBDetails(res?.data?.data?.movie?.imdb_code);
-    //console.log(TMDB_Details)
-    const TMDB_Code = TMDB_Details?.data?.movie_results[0]?.id
-    const TMDB_movie_poster = TMDB_Details?.data?.movie_results[0]?.poster_path;
-    // console.log(TMDB_movie_poster)
-    const TMDB_Cast_Details = await APIGetTMDBCastDetails(TMDB_Code);
-    const TMDB_Director = TMDB_Cast_Details?.data?.crew.filter(a => a.job === 'Director')
-    //console.log(TMDB_Director[0])
-    //console.log(TMDB_Cast_Details?.data?.cast)
-    movieDetails.director = TMDB_Director[0].name;
-    movieDetails.directorId = TMDB_Director[0].id;
-    movieDetails.directorPic = TMDB_Director[0].profile_path;
-    movieDetails.TMDB_cast = TMDB_Cast_Details?.data?.cast;
-    movieDetails.TMDB_poster = TMDB_movie_poster;
-    // console.log(movieDetails)
+    console.log(TMDB_Details?.data?.movie_results[0])
+    if (TMDB_Details?.data?.movie_results[0]){
+        const TMDB_Code = TMDB_Details?.data?.movie_results[0]?.id
+        // console.log(TMDB_Code)
+        const TMDB_movie_poster = TMDB_Details?.data?.movie_results[0]?.poster_path;
+        // console.log(TMDB_movie_poster)
+        const TMDB_Cast_Details = await APIGetTMDBCastDetails(TMDB_Code);
+        const TMDB_Director = TMDB_Cast_Details?.data?.crew.filter(a => a.job === 'Director')
+        //console.log(TMDB_Director[0])
+        //console.log(TMDB_Cast_Details?.data?.cast)
+        movieDetails.director = TMDB_Director[0]?.name;
+        movieDetails.directorId = TMDB_Director[0]?.id;
+        movieDetails.directorPic = TMDB_Director[0]?.profile_path;
+        movieDetails.TMDB_cast = TMDB_Cast_Details?.data?.cast;
+        movieDetails.TMDB_poster = TMDB_movie_poster;
+        movieDetails.TMDB_plot = TMDB_Details?.data?.movie_results[0]?.overview
+        // console.log(movieDetails)
+    }
     dispatch(setSingleMovie(movieDetails ?? []))
 }
 //

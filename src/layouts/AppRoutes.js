@@ -1,6 +1,6 @@
 import {Routes, Route} from "react-router-dom";
 import {ROUTES} from "../routes/routes";
-import {AllMovieDisplay} from '../components/partials/AllMovieDisplay';
+import {AllMovieDisplay}from '../components/partials/AllMovieDisplay';
 import {Search} from "../pages/Search";
 import {FavMovies} from "../pages/FavMovies";
 import {Home} from "../pages/Home";

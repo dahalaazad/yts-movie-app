@@ -7,28 +7,27 @@ import {YtsPagination} from "../YtsPagination";
 import StarIcon from '@mui/icons-material/Star';
 import {ThemeProvider} from "@mui/material";
 import {theme} from "../../utils/Mui-Colors";
-import noImage from '../../assets/svg/noposter-big.svg'
+import {customImageFallback} from "../../utils/customImageFallback";
+import HOC from "../../HOC";
 
-export const AllMovieDisplay = ({moviesProp}) => {
+
+export const AllMovieDisplay = ({data}) => {
     // const movies = useSelector(state => state.movie.movies);
     // console.log(moviesProp)
 
-    const addImageFallback = (e) => {
-        e.currentTarget.src = noImage
-        e.currentTarget.className = 'movie-poster'
 
-    }
     return (
         <section className='home-bg yts-font'>
 
             <div className="flex wrap justify-center all-movie">
-                {moviesProp.map((mov, index) => (
+                {data.map((mov, index) => (
 
 
-                    <div className="container pa-xl mb-four-xl">
+                    <div className="container pa-xl mb-four-xl" key={mov.id}>
 
                         <div className="content mx-lg movie-poster-border">
                             <Link
+
                                 onClick={() => console.log(mov.slug)}
                                 to={`${mov.slug}`}
                                 state={{
@@ -38,8 +37,7 @@ export const AllMovieDisplay = ({moviesProp}) => {
                                 <img
                                     className='content-image'
                                     src={mov.medium_cover_image}
-                                    // fallbackImage={`https://image.tmdb.org/t/p/original${mov.TMDB_poster}`}
-                                    onError={addImageFallback}
+                                    onError={(e) => customImageFallback(e, mov.TMDB_poster, 'movie-poster')}
                                 />
                                 <div className="content-overlay"></div>
                                 <div className="content-details fadeIn-bottom fs-xl">
@@ -51,8 +49,8 @@ export const AllMovieDisplay = ({moviesProp}) => {
                                         <span className='fw-700'>/</span>
                                         <span className='px-xs fw-700'>10</span>
                                     </h3>
-                                    <p className="content-text fs-md">{mov?.genres?.slice(0, 2).map(item => (
-                                        <span className='text-light block bold'>{item}</span>))}</p>
+                                    <p className="content-text fs-md">{mov?.genres?.slice(0, 2).map((item, index) => (
+                                        <span className='text-light block bold' key={index}>{item}</span>))}</p>
                                     <button
                                         className='view-details-btn bg-yts-active text-light py-sm px-lg fs-md-1'>View
                                         Details
@@ -84,3 +82,5 @@ export const AllMovieDisplay = ({moviesProp}) => {
         </section>
     )
 }
+
+// export default HOC(AllMovieDisplay);
