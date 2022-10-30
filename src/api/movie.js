@@ -29,6 +29,9 @@ export const APIGetFurtherTMDBDetails = (id) => {
 export const APIGetTMDBCastDetails = (id) => {
     return GetTMDBCastDetails(`${id}/credits?api_key=${TMDB_API_KEY}&language=en-US`);
 }
+export const APIGetSearchDetails = (name) => {
+    return GetRequest(`list_movies.json?query_term=${name.toLowerCase()}`);
+}
 
 
 

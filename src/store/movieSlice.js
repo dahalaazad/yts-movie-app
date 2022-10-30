@@ -1,10 +1,25 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
+import {APIGetSearchDetails} from "../api/movie";
+
+// import thunk from "redux-thunk";
 
 const initialState = {
     movies: [],
     movie: {},
-    favMovies:[],
+    favMovies: [],
+    searchMovies:[],
+    loading:false,
+
 };
+
+export const getSearchRedux = createAsyncThunk(
+    'getSearchRedux',
+    async (thunkAPI) => {
+        const res = await APIGetSearchDetails('The');
+        return res?.data?.data
+        console.log(res)
+    })
+
 
 export const movieSlice = createSlice({
     name: 'movie',
@@ -19,9 +34,19 @@ export const movieSlice = createSlice({
         setFavMovies: (state, action) => {
             return {...state, favMovies: action.payload};
         },
-    }
+        //     setSearchMovies: (state, action) => {
+        //         return {...state, searchMovies: action.payload};
+        //     },
+    },
+    extraReducers: {
+        [getSearchRedux.fulfilled]: (state, action) => {
+            return {...state, searchMovies: action.payload}
+        },
+
+    },
 });
 
-export const {setAllMovies, setSingleMovie,setFavMovies} = movieSlice.actions;
+export const {setAllMovies, setSingleMovie, setFavMovies} = movieSlice.actions;
 
 export default movieSlice.reducer;
+
