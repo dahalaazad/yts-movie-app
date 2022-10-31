@@ -13,10 +13,10 @@ const initialState = {
 };
 
 export const getSearchRedux = createAsyncThunk(
-    'getSearchRedux',
-    async (thunkAPI) => {
-        const res = await APIGetSearchDetails('The');
-        return res?.data?.data
+    'XXX',
+    async (name,thunkAPI) => {
+        const res = await APIGetSearchDetails(name);
+        return res?.data?.data?.movies
         console.log(res)
     })
 

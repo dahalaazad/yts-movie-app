@@ -21,17 +21,18 @@ const aquaticCreatures = [
 export const Search = () => {
     const dispatch = useDispatch()
     const {keyword} = useParams();
-    const movies = useSelector(state => state.movie.movies);
+    const searchMovies = useSelector(state => state.movie.searchMovies);
 
-    const movieList = movies.map((mov, key) => {
-        return {
-            value: mov.title,
-            label: mov.title
-        }
-    })
+    // const movieList = movies.map((mov, key) => {
+    //     return {
+    //         value: mov.title,
+    //         label: mov.title
+    //     }
+    // })
+    console.log(searchMovies)
 
     useEffect(() => {
-        dispatch(getSearchRedux())
+        dispatch(getSearchRedux('Avengers'))
     }, []);
 
     //console.log('movie in search', movieList)
