@@ -15,9 +15,11 @@ const initialState = {
 export const getSearchRedux = createAsyncThunk(
     'XXX',
     async (name,thunkAPI) => {
-        const res = await APIGetSearchDetails(name);
-        return res?.data?.data?.movies
-        console.log(res)
+        if (name !== ''){
+            const res = await APIGetSearchDetails(name);
+            const movies = res?.data?.data?.movies
+            return movies?.sort((a, b) => b.rating - a.rating).slice(0,5)
+        }
     })
 
 

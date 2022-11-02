@@ -4,8 +4,8 @@ import {Footer} from "../components/partials/Footer";
 
 export const MainLayout = () => (
     <>
-        <Nav/>
-        <main>
+        <Nav/><br/><br/>
+        <main className=''>
             <AppRoutes/>
         </main>
         <Footer/>

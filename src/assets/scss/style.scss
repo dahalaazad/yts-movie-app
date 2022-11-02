@@ -317,7 +317,7 @@ body, html {
 
 @media (max-width: 1656px) {
   .all-movie {
-    margin: 0 6.25% 0 6.25%;
+    margin: 0% 6.25% 0 6.25%;
   }
 }
 
@@ -449,14 +449,16 @@ nav {
 .search-container{
   //color: $yts-dark-color;
   border-radius: 20px;
-}
-
-.search {
+  border:2px solid $search-border !important;
   color: $yts-footer-grey;
   font-family: $yts-font !important;
   background-color: $yts-footer-dark !important;
-  border:2px solid $search-border !important;
+
   caret-color: $light-color;
+}
+
+.search {
+
 }
 .search-input{
   border: none;
@@ -604,6 +606,27 @@ nav {
   //color: $yts-active-green;
   z-index: 999;
   border-radius: 1%;
+}
+
+.fixed{
+  position: fixed;
+}
+
+.sticky{
+  position: sticky;
+  overflow: hidden;
+}
+
+.navbar-main {
+  z-index: 1;
+  width: 100%;
+  margin-top: 0;
+  //margin-bottom: 50px;
+}
+.float{
+  position: fixed !important;
+  z-index: 9;
+  overflow: hidden;
 }
 
 .popUp-title {

@@ -7,7 +7,9 @@ import {FavMovies} from "../../pages/FavMovies";
 import {Home} from "../../pages/Home";
 
 export const Nav = () => (
-    <nav className="flex justify-between items-center wrapper bg-yts-dark text-light yts-header-footer yts-grey">
+    <nav className="navbar-main flex justify-between items-center wrapper bg-yts-dark text-light yts-header-footer yts-grey fixed"
+         style={{marginBottom:'5%'}}>
+
 
         <Link to={'/yts-movie-app'} element={<Home/>}>
             <div className="logo"><img src={ytsLogo} alt='imdbLogo'
