@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 import {AllMovieDisplay} from "./AllMovieDisplay";
-import { Search } from "../../pages/Search";
+import { Search } from "./Search";
 import ytsLogo from "../../assets/svg/logo-yts.svg";
 import {BrowseMovies} from "../../pages/BrowseMovies";
 import {FavMovies} from "../../pages/FavMovies";

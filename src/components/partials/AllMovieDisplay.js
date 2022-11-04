@@ -27,7 +27,6 @@ export const AllMovieDisplay = ({data}) => {
 
                         <div className="content mx-lg movie-poster-border">
                             <Link
-
                                 onClick={() => console.log(mov.slug)}
                                 to={`${mov.slug}`}
                                 state={{

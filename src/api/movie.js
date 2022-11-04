@@ -14,6 +14,9 @@ export const APIBrowseMovies = (page) => {
 export const APIGetMovie = (id) => {
     return GetRequest(`movie_details.json?movie_id=${id}&with_images=true&with_cast=true`);
 }
+export const APIGetSimilarMovies = (id) => {
+    return GetRequest(`movie_suggestions.json?movie_id=${id}`);
+}
 
 export const APIGetFavMovies = (id) => {
     return GetRequest(`movie_details.json?imdb_id=${id}`);

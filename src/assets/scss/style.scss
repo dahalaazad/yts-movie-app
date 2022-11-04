@@ -471,6 +471,9 @@ nav {
 .search-input:focus{
   outline: none;
 }
+.search-item:hover {
+  background-color:#3e3e3e ;
+}
 
 //.movie-detail-poster:hover {
 //   !important;
@@ -518,8 +521,31 @@ nav {
 }
 
 .movie-in-detail {
-  margin-left: 10%;
-  margin-top: 2%;
+  margin-left: 0%;
+  margin-top: 3%;
+}
+.similar-movies-all{
+  margin-top: 3%;
+}
+
+.similar-movies-grid{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.similar-movies{
+  border: 4px solid $light-color;
+  border-radius: $xs;
+}
+
+.similar-movies:hover{
+  border: 4px solid $yts-active-green;
+}
+
+
+.similar-movies-image{
+  width: 92px;
+  height: 138px;
 }
 
 .movie-card {
@@ -768,6 +794,11 @@ nav {
 
 .movie-year {
   font-weight: 1.25em;
+}
+
+.torrent-options-grid{
+  display: grid;
+  grid-template-columns: auto auto auto;
 }
 
 .torrent-link {

@@ -7,9 +7,8 @@ const initialState = {
     movies: [],
     movie: {},
     favMovies: [],
+    similarMovies:[],
     searchMovies:[],
-    loading:false,
-
 };
 
 export const getSearchRedux = createAsyncThunk(
@@ -36,9 +35,9 @@ export const movieSlice = createSlice({
         setFavMovies: (state, action) => {
             return {...state, favMovies: action.payload};
         },
-        //     setSearchMovies: (state, action) => {
-        //         return {...state, searchMovies: action.payload};
-        //     },
+        setSimilarMovies: (state, action) => {
+            return {...state, similarMovies: action.payload};
+        },
     },
     extraReducers: {
         [getSearchRedux.fulfilled]: (state, action) => {
@@ -48,7 +47,7 @@ export const movieSlice = createSlice({
     },
 });
 
-export const {setAllMovies, setSingleMovie, setFavMovies} = movieSlice.actions;
+export const {setAllMovies, setSingleMovie, setFavMovies,setSimilarMovies} = movieSlice.actions;
 
 export default movieSlice.reducer;
 

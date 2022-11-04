@@ -16,6 +16,8 @@ import StarIcon from "@mui/icons-material/Star";
 import {ThemeProvider} from "@mui/material";
 import {torrentType} from "../utils/torrentType";
 import {customImageFallback} from "../utils/customImageFallback";
+import {SimilarMovies} from "../components/partials/SimilarMovies";
+import {getSimilarMovies} from "../utils/getSimilarMovies";
 
 
 export const MovieDetail = () => {
@@ -23,7 +25,9 @@ export const MovieDetail = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const movie = useSelector(state => state.movie.movie);
+    const suggestedMovies = useSelector(state => state.movie.similarMovies);
     const id = location.state?.currentMovieId;
+
     const [open, setOpen] = useState(false);
 
 
@@ -36,13 +40,15 @@ export const MovieDetail = () => {
 
     useEffect(async () => {
         await loadMovie();
-    }, [])
+    }, [id])
     const loadMovie = async () => {
         await dispatch(getMovie(id));
+        await dispatch(getSimilarMovies(id));
     }
+
     return (
         <section className='detail-section'>
-            <div className="top-half flex justify-between movie-bg" style={{
+            <div className="top-half flex justify-evenly movie-bg" style={{
                 background: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ),url(${movie.background_image_original})`
             }}>
                 <div className="movie-in-detail flex pa-md ">
@@ -81,7 +87,7 @@ export const MovieDetail = () => {
                         {/* use conditional statement to not give '/' to last element in the genre array */}
 
                         <h3 className='flex py-lg'><span className='font-italic pt-xs'>Available in:</span>
-                            <div className='flex px-sm'>
+                            <div className='torrent-options-grid px-sm'>
                                 {movie.torrents?.map((link) => (<a href={link.url} target="_blank" key={link.url}>
                                     <div className='torrent-link pr-sm mx-xs'>
                                         {`${link.quality}.${torrentType(link.type)}`}
@@ -99,9 +105,11 @@ export const MovieDetail = () => {
                             </h3>
                         </div>
                     </div>
+
                 </div>
-                <div className="similar-movies">
-                    {/*<span className='text-light'>Similar Movies</span>*/}
+                <div className="similar-movies-all pa-lg">
+                    <span className='text-light bold ml-sm'>Similar Movies</span>
+                    <SimilarMovies suggestedMovies={suggestedMovies}/>
                 </div>
             </div>
 
